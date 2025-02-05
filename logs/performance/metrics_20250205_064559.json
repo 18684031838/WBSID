@@ -1,0 +1,21 @@
+{
+    "model_type": "decision_tree",
+    "feature_types": [
+        "tfidf",
+        "sql_semantic"
+    ],
+    "timestamp": "2025-02-05T06:45:59.994423",
+    "accuracy": 0.9945019404915912,
+    "precision": 0.9945110273510154,
+    "recall": 0.9945019404915912,
+    "f1": 0.9944974264732555,
+    "inference_time": 0.013007164001464844,
+    "memory_usage": 830.85546875,
+    "training_time": 2.2144615650177,
+    "false_positive_rate": null,
+    "true_positive_rate": null,
+    "auc_score": null,
+    "confusion_matrix": null,
+    "feature_importance": null,
+    "model_params": null
+}

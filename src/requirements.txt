@@ -1,0 +1,15 @@
+redis==5.0.1
+pybloom-live==3.0.0
+numpy>=1.21.0
+scikit-learn>=0.24.2
+gensim>=4.0.1
+nltk>=3.6.2
+imbalanced-learn>=0.8.0
+joblib>=1.0.1
+torch>=1.9.0
+werkzeug==2.3.7
+fastapi==0.104.1
+uvicorn==0.24.0
+python-multipart==0.0.6
+sqlalchemy==2.0.23
+pydantic==2.5.2

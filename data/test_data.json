@@ -1,0 +1,4002 @@
+[
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/25/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=8259&street=607 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=6120&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_807&password=pass_792",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_438&password=pass_568",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=7539",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=3775&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/92/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user988@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_686&password=pass_376",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3617&quantity=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/67288/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=4153&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=9080&street=157 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6145/reviews?page=2&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/98038/status",
+    "is_injection": false
+  },
+  {
+    "query": "1; SELECT * FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=9917",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4926/reviews?page=1&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/90/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_330&password=pass_716",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/36729/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2370&street=404 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user559@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2695&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=8408&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=8214&quantity=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/69657/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9016",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/21/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/53/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6728/reviews?page=9&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=3&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/65864/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=2109&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=5715&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user734@example.com&name=User 533",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3379&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=5321",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/92709/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user896@example.com&name=User 937",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5390&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_811&password=pass_136",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=3&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=4138&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5717&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "'; DROP TABLE temp--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=5455&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/86/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user594@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/95/products?filter=new&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user530@example.com&name=User 296",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/24/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_341&password=pass_282",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_979&password=pass_864",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=4681&quantity=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4941&page=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_404&password=pass_511",
+    "is_injection": false
+  },
+  {
+    "query": "1; SELECT * FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=6111&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user237@example.com&name=User 732",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=5368",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9736",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2783&page=4",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "'; DROP TABLE temp--",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=3204",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=7061&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5227/reviews?page=4&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/54/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/9870/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user100@example.com&name=User 475",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user137@example.com&name=User 963",
+    "is_injection": false
+  },
+  {
+    "query": "'; DROP TABLE temp--",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/8594/reviews?page=9&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_737&password=pass_422",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/70/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=7888&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6591/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/8673/reviews?page=5&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=5182&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/72/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_426&password=pass_805",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=8461",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/56/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_949&password=pass_842",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/98401/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/81263/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/12/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=1450",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4893&street=148 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4979/reviews?page=10&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/13/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user990@example.com&name=User 222",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=4731&quantity=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=6037&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4680/reviews?page=10&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=7253&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/8869/reviews?page=10&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user678@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user947@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=5842&page=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=1978&page=3",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4611&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user478@example.com&name=User 951",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/49832/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user346@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=8014&page=9",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=3&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=6323&street=133 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5422&street=513 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_885&password=pass_856",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=9247&page=9",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/53191/status",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/81/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/8260/reviews?page=7&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=8353&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=2095&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=9493&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/9301/reviews?page=4&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/25591/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/59/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4482/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2017&page=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/87/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2286&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user484@example.com&name=User 399",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=4689&quantity=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=8067&street=691 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=2178",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=8099",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5556&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user842@example.com&name=User 808",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2344&page=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=7956&street=973 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_431&password=pass_761",
+    "is_injection": false
+  },
+  {
+    "query": "1; SELECT * FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=3526",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/73/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=5387&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=3083&page=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=9129&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=9488",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/37034/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/96227/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_120&password=pass_575",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/23203/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/7368/reviews?page=4&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_784&password=pass_768",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=8233",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6611/reviews?page=3&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=3887&quantity=8",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/54/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5855&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=9125&street=257 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1917&quantity=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5974/reviews?page=9&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=6374",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/86542/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user341@example.com&name=User 422",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user968@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/91097/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3994&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8484&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/29/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6644/reviews?page=1&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=2993&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=5366",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=2504",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_301&password=pass_476",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=8632",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1191&street=723 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=3048&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=3299",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/37/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=7038&street=724 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/63/products?filter=new&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/11328/status",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=9015",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/8322/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1249&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=3697&street=481 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/81754/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9035",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=4824",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=7207&street=876 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4446&street=420 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6370/reviews?page=4&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3248/reviews?page=7&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/77736/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_649&password=pass_344",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user593@example.com&name=User 894",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=6430",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_356&password=pass_276",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=8977",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_372&password=pass_948",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=5310",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=6802&street=319 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/22/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_394&password=pass_384",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/14842/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=1588",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=6640&street=818 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user712@example.com&name=User 656",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user542@example.com&name=User 152",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=6656",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/89546/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=7600&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=2130&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=1093&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2156&street=845 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=7517&quantity=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=5425&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2034/reviews?page=4&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_795&password=pass_798",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=2086&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=4186&quantity=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/7943/reviews?page=10&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=7577&street=844 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_775&password=pass_986",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=9250&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/50419/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2844&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=7706",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user294@example.com&name=User 878",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=electronics&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/1989/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=5647&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user776@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/1688/reviews?page=6&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/89551/status",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user739@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "1; SELECT * FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user624@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=9959&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4028&street=374 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4531&page=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user182@example.com&name=User 409",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/24/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=3359",
+    "is_injection": false
+  },
+  {
+    "query": "'; DROP TABLE temp--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_710&password=pass_962",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user102@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6610/reviews?page=4&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/84355/status",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_843&password=pass_943",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5818&street=345 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/14/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3390/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=9101",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user408@example.com&name=User 253",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user562@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1132&street=123 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_731&password=pass_269",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/1940/reviews?page=1&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=1733",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=6356",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4122&street=882 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=8146",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_836&password=pass_571",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/85007/status",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=5258&quantity=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user387@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=1177",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user296@example.com&name=User 927",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=9135&street=934 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=7821&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1429&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_985&password=pass_824",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=5774&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6971/reviews?page=8&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=4925",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user665@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user854@example.com&name=User 881",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=2827&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=3560&street=667 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=4798",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user661@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/90706/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/9595/reviews?page=3&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/54999/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user191@example.com&name=User 897",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9848",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_708&password=pass_527",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/2082/reviews?page=10&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=9191&page=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5166/reviews?page=9&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_568&password=pass_814",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user128@example.com&name=User 640",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=6186",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_288&password=pass_998",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2547&street=180 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_226&password=pass_981",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=9110",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=1096",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_133&password=pass_495",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=8347",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=7151&quantity=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user556@example.com&name=User 894",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=5383&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5699&street=167 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=1082",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5512&street=424 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=9561&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3721&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=2882&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=5583",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=6604",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user352@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=7551",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=8662&street=646 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=1428&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=8855&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=7589&page=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/91/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/17/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/61933/status",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=sports&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user465@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=2438",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/4740/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/68/products?filter=popular&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user467@example.com&name=User 856",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4307&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/21/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/20143/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=6791&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user999@example.com&name=User 859",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5527/reviews?page=5&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/63/products?filter=new&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user885@example.com&name=User 261",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user529@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=1829&page=3",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=8805",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user310@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/76/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3160/reviews?page=5&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4752&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/1375/reviews?page=6&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=5265",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/4715/reviews?page=8&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=4726",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=1640",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_749&password=pass_417",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=5714&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=5046&street=400 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user769@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5175/reviews?page=4&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9268",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=6078&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user171@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user550@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/8852/reviews?page=9&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user310@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=1905&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/96444/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_974&password=pass_528",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user427@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=5759",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4813/reviews?page=6&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/82589/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user899@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/26/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=7239",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/cart?user_id=1872",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user560@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=6259",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/45/products?filter=popular&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_461&password=pass_172",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=1854",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=laptop",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2610/reviews?page=8&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4161&street=148 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/89062/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5001/reviews?page=1&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4724&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5081&street=614 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8023&quantity=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8020&quantity=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4607&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9983",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user533@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user292@example.com&name=User 291",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=3598&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=4407&street=332 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=6737&quantity=2",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=9246",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=3367&street=683 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/49238/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/70201/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=3&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=6299&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/100/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=2477",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=7160&quantity=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user951@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4227&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=9171&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8132&quantity=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/27/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1839&street=754 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2149&street=218 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_748&password=pass_277",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=6913&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=3981&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5974&street=606 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user305@example.com&name=User 480",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/4909/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user549@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=3211&street=935 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user580@example.com&name=User 659",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_731&password=pass_610",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9988",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2551&page=10",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user981@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user268@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=6504&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/35643/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=1319",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/72/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=1233&page=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=8135&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=2476&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/17/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user691@example.com&name=User 417",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_760&password=pass_338",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user751@example.com&name=User 138",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user601@example.com&name=User 457",
+    "is_injection": false
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=3918",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=1384&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=9895&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=8462&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=5808",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_704&password=pass_675",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_993&password=pass_366",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user285@example.com&name=User 954",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_433&password=pass_842",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user278@example.com&name=User 941",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user767@example.com&name=User 174",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/43402/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=3895",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_485&password=pass_314",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=8586",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3024/reviews?page=3&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/72297/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2287/reviews?page=7&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4751&page=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=2550",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user248@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=8619&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/8288/reviews?page=5&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user617@example.com&name=User 995",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/41333/status",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/1081/reviews?page=8&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user934@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5607/reviews?page=10&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=6805&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user284@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8253&quantity=4",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=7692&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6559/reviews?page=5&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4229&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/86/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user356@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/74/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8032&quantity=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4702&street=230 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=7169",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=1453",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4407&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/45817/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/82/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=7973&street=779 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/60576/status",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user882@example.com&name=User 999",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_178&password=pass_760",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=5&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=7569&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=3969&page=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/76/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_502&password=pass_873",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=9513&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=6509",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1787&street=489 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4359&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1527&street=252 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_550&password=pass_535",
+    "is_injection": false
+  },
+  {
+    "query": "1' ORDER BY 1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user109@example.com&name=User 439",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5471&street=558 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/19/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=8739",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user478@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=6194&quantity=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=3610&street=190 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=8292&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_670&password=pass_661",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=9087&street=448 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=9488&page=8",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_989&password=pass_150",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=4032",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/29806/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user614@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1826&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=2597",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4676/reviews?page=7&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=2899&quantity=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4811&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3520&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_629&password=pass_804",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=2831&page=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/6273/reviews?page=7&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user177@example.com&name=User 445",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5127&page=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user368@example.com&name=User 259",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/69468/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9092",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=1956&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_935&password=pass_595",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user638@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=8720&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user721@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/21352/status",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user192@example.com&name=User 745",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/8/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/61/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=1358",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=4&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=8118&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=6246&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/27472/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/51/products?filter=new&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=1080&street=492 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1563&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=7424",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3348/reviews?page=2&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=4344&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/65536/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2907/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user592@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=3378",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/1497/reviews?page=4&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=1207&street=969 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2402&street=806 Main St&city=Berlin",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/21/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=3295&page=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_880&password=pass_670",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=6245&quantity=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=5130&street=467 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_715&password=pass_212",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user217@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=4324&street=926 Main St&city=Paris",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=4653",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=8824&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/48406/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=7636",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=5699",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=6769",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=7562&page=2",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4915&page=9",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=9285&quantity=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=6326",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5117/reviews?page=5&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user965@example.com&name=User 445",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=9105&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/login?username=user_762&password=pass_155",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/56/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=3371&street=667 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/61/products?filter=sale&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/70549/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user465@example.com&name=User 774",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user796@example.com&name=User 556",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=5966&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user495@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/51580/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=camera",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4116&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user772@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user157@example.com&name=User 272",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user399@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/37742/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=5918&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=3182",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/90067/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user381@example.com&name=User 620",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=2270",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=1234&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=4339&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user201@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=9975",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/search?keyword=tablet",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/36133/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=5619",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders/14621/status",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/wishlist?user_id=3106&page=6",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "' OR 'a'='a",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=5895&street=553 Main St&city=Tokyo",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/21936/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2201/reviews?page=9&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/29/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user504@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/6/products?filter=new&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/59/products?filter=popular&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/60/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user895@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "1; SELECT * FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=sports&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/3275/reviews?page=1&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user781@example.com&name=User 493",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user880@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/55867/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=3794&quantity=7",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=phone",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/profile?email=user716@example.com&name=User 441",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user396@example.com&name=User 955",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user516@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "1' OR '1' = '1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=9554",
+    "is_injection": false
+  },
+  {
+    "query": "'; EXEC xp_cmdshell('net user')--",
+    "is_injection": true
+  },
+  {
+    "query": "1' AND 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/orders?item_id=5916&quantity=3",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=5980",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=1234&quantity=5",
+    "is_injection": false
+  },
+  {
+    "query": "/api/search?keyword=watch",
+    "is_injection": false
+  },
+  {
+    "query": "1 OR 1=1",
+    "is_injection": true
+  },
+  {
+    "query": "' OR sleep(5)--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=2693",
+    "is_injection": false
+  },
+  {
+    "query": "/api/cart?user_id=9004",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=books&sort=price_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=sports&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/4558/reviews?page=8&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "admin' --",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/19/products?filter=sale&sort=price",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5087/reviews?page=4&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_466&password=pass_887",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=5291&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=2&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user842@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=9340&quantity=10",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=3345",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/74/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=7358&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=6109&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders?item_id=2548&quantity=6",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/49253/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/34/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=sports&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user919@example.com&name=User 554",
+    "is_injection": false
+  },
+  {
+    "query": "' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/9903/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5424/reviews?page=8&limit=50",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/100/products?filter=popular&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "1; DROP TABLE users--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/comments?post_id=2213&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user115@example.com&name=User 765",
+    "is_injection": false
+  },
+  {
+    "query": "/api/subscribe?email=user102@example.com&newsletter=false",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_190&password=pass_459",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user938@example.com&name=User 290",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=4146",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/5615/reviews?page=1&limit=10",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/41/products?filter=new&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=2383",
+    "is_injection": false
+  },
+  {
+    "query": "1 UNION SELECT username, password FROM users--",
+    "is_injection": true
+  },
+  {
+    "query": "' UNION ALL SELECT null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/categories/15/products?filter=new&sort=date",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=food&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "admin' OR '1'='1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products?category=sports&sort=name_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2245/reviews?page=10&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/orders/66981/status",
+    "is_injection": false
+  },
+  {
+    "query": "/api/categories/12/products?filter=sale&sort=name",
+    "is_injection": false
+  },
+  {
+    "query": "/api/feedback?rating=1&comment=Sample feedback comment",
+    "is_injection": false
+  },
+  {
+    "query": "/api/wishlist?user_id=2083&page=1",
+    "is_injection": false
+  },
+  {
+    "query": "' UNION SELECT null, null--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/address?user_id=5945&street=979 Main St&city=New York",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/2495/reviews?page=5&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "' OR 'x'='x",
+    "is_injection": true
+  },
+  {
+    "query": "/api/users?id=3746",
+    "is_injection": false
+  },
+  {
+    "query": "' HAVING 1=1--",
+    "is_injection": true
+  },
+  {
+    "query": "/api/products/6771/reviews?page=10&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=clothing&sort=name_desc",
+    "is_injection": false
+  },
+  {
+    "query": "1 AND (SELECT * FROM users) = 1",
+    "is_injection": true
+  },
+  {
+    "query": "/api/subscribe?email=user552@example.com&newsletter=true",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products?category=electronics&sort=price_asc",
+    "is_injection": false
+  },
+  {
+    "query": "/api/login?username=user_278&password=pass_225",
+    "is_injection": false
+  },
+  {
+    "query": "/api/products/9959/reviews?page=1&limit=20",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=2978&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=2470&street=291 Main St&city=London",
+    "is_injection": false
+  },
+  {
+    "query": "/api/profile?email=user113@example.com&name=User 715",
+    "is_injection": false
+  },
+  {
+    "query": "/api/users?id=2843",
+    "is_injection": false
+  },
+  {
+    "query": "/api/comments?post_id=7547&text=Sample comment text",
+    "is_injection": false
+  },
+  {
+    "query": "/api/address?user_id=8078&street=175 Main St&city=London",
+    "is_injection": false
+  }
+]

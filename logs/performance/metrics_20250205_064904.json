@@ -1,0 +1,21 @@
+{
+    "model_type": "cnn",
+    "feature_types": [
+        "tfidf",
+        "sql_semantic"
+    ],
+    "timestamp": "2025-02-05T06:49:04.491310",
+    "accuracy": 0.9948253557567918,
+    "precision": 0.994838281976618,
+    "recall": 0.9948253557567918,
+    "f1": 0.9948206285382589,
+    "inference_time": 1.4344823360443115,
+    "memory_usage": 1845.1875,
+    "training_time": 161.82216024398804,
+    "false_positive_rate": null,
+    "true_positive_rate": null,
+    "auc_score": null,
+    "confusion_matrix": null,
+    "feature_importance": null,
+    "model_params": null
+}

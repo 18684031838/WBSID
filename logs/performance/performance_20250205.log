@@ -1,0 +1,55 @@
+2025-02-05 06:45:48,719 - sql_injection_middleware.performance_monitor - INFO - 记录性能指标 - 模型: svm
+2025-02-05 06:45:48,721 - sql_injection_middleware.performance_monitor - INFO - model_type: svm
+2025-02-05 06:45:48,721 - sql_injection_middleware.performance_monitor - INFO - feature_types: ['tfidf', 'sql_semantic']
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - timestamp: 2025-02-05T06:45:48.718734
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - accuracy: 0.9840
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - precision: 0.9840
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - recall: 0.9840
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - f1: 0.9840
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - inference_time: 0.2372
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - memory_usage: 832.2148
+2025-02-05 06:45:48,722 - sql_injection_middleware.performance_monitor - INFO - training_time: 55.8225
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - 记录性能指标 - 模型: random_forest
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - model_type: random_forest
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - feature_types: ['tfidf', 'sql_semantic']
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - timestamp: 2025-02-05T06:45:54.704540
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - accuracy: 0.9958
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - precision: 0.9958
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - recall: 0.9958
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - f1: 0.9958
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - inference_time: 0.0386
+2025-02-05 06:45:54,704 - sql_injection_middleware.performance_monitor - INFO - memory_usage: 832.6445
+2025-02-05 06:45:54,705 - sql_injection_middleware.performance_monitor - INFO - training_time: 2.8775
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - 记录性能指标 - 模型: decision_tree
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - model_type: decision_tree
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - feature_types: ['tfidf', 'sql_semantic']
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - timestamp: 2025-02-05T06:45:59.994423
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - accuracy: 0.9945
+2025-02-05 06:45:59,994 - sql_injection_middleware.performance_monitor - INFO - precision: 0.9945
+2025-02-05 06:45:59,995 - sql_injection_middleware.performance_monitor - INFO - recall: 0.9945
+2025-02-05 06:45:59,995 - sql_injection_middleware.performance_monitor - INFO - f1: 0.9945
+2025-02-05 06:45:59,995 - sql_injection_middleware.performance_monitor - INFO - inference_time: 0.0130
+2025-02-05 06:45:59,995 - sql_injection_middleware.performance_monitor - INFO - memory_usage: 830.8555
+2025-02-05 06:45:59,995 - sql_injection_middleware.performance_monitor - INFO - training_time: 2.2145
+2025-02-05 06:46:15,496 - sql_injection_middleware.performance_monitor - INFO - 记录性能指标 - 模型: logistic_regression
+2025-02-05 06:46:15,496 - sql_injection_middleware.performance_monitor - INFO - model_type: logistic_regression
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - feature_types: ['tfidf', 'sql_semantic']
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - timestamp: 2025-02-05T06:46:15.496835
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - accuracy: 0.9871
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - precision: 0.9871
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - recall: 0.9871
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - f1: 0.9870
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - inference_time: 0.0089
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - memory_usage: 831.8945
+2025-02-05 06:46:15,497 - sql_injection_middleware.performance_monitor - INFO - training_time: 12.4409
+2025-02-05 06:49:04,491 - sql_injection_middleware.performance_monitor - INFO - 记录性能指标 - 模型: cnn
+2025-02-05 06:49:04,491 - sql_injection_middleware.performance_monitor - INFO - model_type: cnn
+2025-02-05 06:49:04,491 - sql_injection_middleware.performance_monitor - INFO - feature_types: ['tfidf', 'sql_semantic']
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - timestamp: 2025-02-05T06:49:04.491310
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - accuracy: 0.9948
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - precision: 0.9948
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - recall: 0.9948
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - f1: 0.9948
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - inference_time: 1.4345
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - memory_usage: 1845.1875
+2025-02-05 06:49:04,492 - sql_injection_middleware.performance_monitor - INFO - training_time: 161.8222

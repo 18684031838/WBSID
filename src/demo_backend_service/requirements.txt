@@ -1,0 +1,12 @@
+mysql-connector-python>=8.0.26
+fastapi>=0.68.0
+uvicorn>=0.15.0
+flask==2.0.1
+mysql-connector-python==8.0.26
+redis==3.5.3
+werkzeug==2.0.1
+scikit-learn==0.24.2
+numpy==1.21.2
+joblib==1.0.1
+python-dotenv==1.0.0
+requests==2.31.0

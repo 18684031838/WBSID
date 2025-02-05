@@ -1,0 +1,26 @@
+[
+    {
+        "query": "SELECT * FROM users WHERE id = 1",
+        "is_injection": false
+    },
+    {
+        "query": "SELECT * FROM users WHERE id = 1 OR 1=1",
+        "is_injection": true
+    },
+    {
+        "query": "SELECT name, age FROM employees WHERE department = 'IT'",
+        "is_injection": false
+    },
+    {
+        "query": "SELECT * FROM users WHERE username = '' OR '1'='1'",
+        "is_injection": true
+    },
+    {
+        "query": "INSERT INTO logs (message) VALUES ('User login successful')",
+        "is_injection": false
+    },
+    {
+        "query": "SELECT * FROM users WHERE id = 1; DROP TABLE users;",
+        "is_injection": true
+    }
+]

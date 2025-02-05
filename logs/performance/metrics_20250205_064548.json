@@ -1,0 +1,21 @@
+{
+    "model_type": "svm",
+    "feature_types": [
+        "tfidf",
+        "sql_semantic"
+    ],
+    "timestamp": "2025-02-05T06:45:48.718734",
+    "accuracy": 0.9839909443725744,
+    "precision": 0.9840070824227072,
+    "recall": 0.9839909443725744,
+    "f1": 0.9839650792074054,
+    "inference_time": 0.2372283935546875,
+    "memory_usage": 832.21484375,
+    "training_time": 55.82247853279114,
+    "false_positive_rate": null,
+    "true_positive_rate": null,
+    "auc_score": null,
+    "confusion_matrix": null,
+    "feature_importance": null,
+    "model_params": null
+}
