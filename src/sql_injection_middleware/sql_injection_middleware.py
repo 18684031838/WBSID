@@ -59,7 +59,7 @@ class SQLInjectionMiddleware:
                 'decode_responses': True,
                 'health_check_interval': 30  # 添加健康检查间隔
             }
-            self.logger.info(f"Redis配置信息: {redis_config}")
+            #self.logger.info(f"Redis配置信息: {redis_config}")
             
             # 初始化Redis连接
             self.logger.info("正在连接Redis服务器...")

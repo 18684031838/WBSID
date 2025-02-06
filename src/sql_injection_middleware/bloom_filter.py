@@ -52,7 +52,7 @@ class SQLInjectionBloomFilter:
             safe_config = redis_config.copy()
             if safe_config['password']:
                 safe_config['password'] = '******'
-            self.logger.info(f"布隆过滤器Redis配置: {safe_config}")
+            #self.logger.info(f"布隆过滤器Redis配置: {safe_config}")
             
             # 初始化Redis连接
             self.logger.info("正在连接Redis服务器...")
