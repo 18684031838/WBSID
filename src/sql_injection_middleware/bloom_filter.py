@@ -80,79 +80,80 @@ class SQLInjectionBloomFilter:
         self.sql_patterns = [
             # 1. 基本SQL注入
             r"'\s*OR\s*'?[0-9]+\s*'?\s*=\s*'?[0-9]+\s*'?",  # ' OR '1'='1
-            r"'\s*OR\s*'.*?'='.*?'",  # ' OR 'x'='x
+            r"'\s*OR\s*'.*?'=\s*'.*?'",  # ' OR 'x'='x
             r"'\s*OR\s*'.*?'\s*LIKE\s*'.*?'",  # ' OR 'x' LIKE 'x
             r"'\s*OR\s*[a-zA-Z0-9_]+\s*=\s*[a-zA-Z0-9_]+",  # ' OR username=username
+            r"'\s*OR\s*'1'\s*=\s*'1'",  # ' OR '1' = '1
+            r"'\s*OR\s*1\s*=\s*1",      # ' OR 1 = 1
+            r"'\s*OR\s*'1'\s*=\s*'1",    # ' OR '1' = '1
+            r"'\s*OR\s*'1\s*'=\s*'1'",   # ' OR '1 '='1'
+            r"'\s*OR\s*1\s*=\s*1\s*--",  # ' OR 1 = 1 --
             
             # 2. UNION注入
             r"UNION\s+ALL\s+SELECT",
             r"UNION\s+SELECT",
             r"SELECT\s+FROM",
+            r"INSERT\s+INTO",
+            r"UPDATE\s+.*?\s+SET",
+            r"DELETE\s+FROM",
             
-            # 3. 注释符号
+            # 3. 注释符号和终止符
             r"--\s+",
             r"#\s*$",
             r"/\*.*?\*/",
+            r";.*?$",           # 语句终止符后跟其他语句
             
             # 4. 系统表和函数
             r"INFORMATION_SCHEMA\.",
             r"SYSOBJECTS",
             r"SYSCOLUMNS",
             r"@@VERSION",
-            r"@@SERVERNAME",
-            r"IS_SRVROLEMEMBER",
-            r"CURRENT_USER",
+            r"USER\s*\(\s*\)",
+            r"DATABASE\s*\(\s*\)",
             r"SYSTEM_USER",
+            r"CURRENT_USER",
             
-            # 5. 危险操作
-            r";\s*DROP\s+",
-            r";\s*DELETE\s+",
-            r";\s*UPDATE\s+",
-            r";\s*INSERT\s+",
-            r";\s*TRUNCATE\s+",
-            r";\s*ALTER\s+",
-            r";\s*EXEC\s*\(",
-            r"DECLARE\s+@",
+            # 5. 条件注入
+            r"AND\s+1\s*=\s*1",
+            r"AND\s+'1'\s*=\s*'1'",
+            r"OR\s+1\s*=\s*1",
+            r"OR\s+'1'\s*=\s*'1'",
             
-            # 6. 特殊字符和编码
-            r"%00",  # Null byte
-            r"0x[0-9a-fA-F]+",  # Hex encoding
-            r"CHAR\([0-9,]+\)",  # CHAR function
-            r"CONCAT\([^)]+\)",  # CONCAT function
-            
-            # 7. 条件语句
-            r"CASE\s+WHEN",
-            r"IF\s*\([^)]+\)",
+            # 6. 时间延迟注入
             r"WAITFOR\s+DELAY",
-            r"BENCHMARK\s*\(",
+            r"SLEEP\s*\(\s*\d+\s*\)",
+            r"BENCHMARK\s*\(\s*\d+\s*,",
             
-            # 8. 堆叠查询
-            r";\s*SELECT\s+",
-            r";\s*WITH\s+",
-            r";\s*BEGIN\s+",
+            # 7. 堆叠注入
+            r";\s*SELECT",
+            r";\s*INSERT",
+            r";\s*UPDATE",
+            r";\s*DELETE",
             
-            # 9. 数据库特定
-            r"UTL_HTTP",
-            r"UTL_INADDR",
-            r"DBMS_",
-            r"XP_CMDSHELL",
+            # 8. 特殊字符和编码
+            r"%27",      # URL编码的单引号
+            r"%22",      # URL编码的双引号
+            r"%2527",    # 双重URL编码的单引号
+            r"\x27",     # 十六进制编码的单引号
             
-            # 10. 常见绕过技术
-            r"\/\*!",  # MySQL版本注释
-            r"SELECT\s*\+",
-            r"SELECT\s*'",
-            r"SELECT\s*`",
-            r"SELECT\s*%",
-            r"SLEEP\s*\(",
-            r"ORDER\s+BY\s+[0-9]+",
+            # 9. 常见的绕过技术
+            r"/\*!.*?\*/",     # MySQL版本注释
+            r"/\*!50000.*?\*/", # 特定MySQL版本注释
+            r"\/\*[^*]*\*+([^/*][^*]*\*+)*\/", # 内联注释
+            r";\s*--",         # 注释行终止
+            r";\s*#",          # Hash注释终止
+            r"\|\|",           # Oracle连接符
+            r"&&",             # 逻辑与
             
-            # 11. 特殊编码和混淆
-            r"UNHEX\s*\(",
-            r"FROM_BASE64\s*\(",
-            r"TO_BASE64\s*\(",
-            r"LOAD_FILE\s*\(",
-            r"INTO\s+OUTFILE",
-            r"INTO\s+DUMPFILE"
+            # 10. 空白字符变体
+            r"\s+OR\s+'1'\s*=\s*'1'",    # 带有额外空白
+            r"\t+OR\t+'1'\t*=\t*'1'",    # 制表符
+            r"\n+OR\n+'1'\n*=\n*'1'",    # 换行符
+            
+            # 11. 大小写混合
+            r"(?i)OR\s+'1'\s*=\s*'1'",   # 不区分大小写
+            r"(?i)UNION\s+SELECT",
+            r"(?i)SELECT\s+FROM",
         ]
         
         # 预加载常见SQL注入特征

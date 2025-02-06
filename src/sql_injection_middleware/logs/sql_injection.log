@@ -266,3 +266,539 @@ ValueError: SQLSemanticExtractor must be fitted before transform
 2025-02-06 20:45:31,728 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
 2025-02-06 20:45:31,728 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
 2025-02-06 20:45:31,730 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:46:58,708 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:46:58,708 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:47:00,729 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:47:00,729 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:47:00,729 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:47:00,730 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:47:02,753 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:47:02,767 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:47:02,768 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:47:02,768 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:47:02,768 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:47:02,873 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:47:02,873 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:47:02,873 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:47:02,874 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:47:02,874 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:47:02,874 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:47:02,874 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:47:02,877 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-06 20:47:02,878 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 20:47:02,880 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 20:47:05,841 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:47:05,841 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:47:07,871 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:47:07,872 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:47:07,873 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:47:07,873 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:47:09,908 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:47:09,923 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:47:09,923 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:47:09,923 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:47:09,924 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:47:10,028 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:47:10,030 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:47:10,031 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:47:10,031 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:47:10,031 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:47:10,031 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:47:10,031 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:47:23,350 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 20:47:23,350 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:47:23,353 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.003s]
+可疑参数: /products/1
+2025-02-06 20:47:23,353 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: User-Agent
+2025-02-06 20:47:23,354 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: Apifox/1.0.0 (https://apifox.com)
+2025-02-06 20:47:23,354 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Accept
+2025-02-06 20:47:23,355 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: * 
+2025-02-06 20:47:23,355 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Host
+2025-02-06 20:47:23,355 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: localhost:5000
+2025-02-06 20:47:23,356 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Accept-Encoding
+2025-02-06 20:47:23,357 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: gzip, deflate, br
+2025-02-06 20:47:23,357 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Connection
+2025-02-06 20:47:23,357 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: keep-alive
+2025-02-06 20:47:23,357 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.007秒
+2025-02-06 20:47:25,807 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.450秒
+2025-02-06 20:47:25,808 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:47:25] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 20:47:48,890 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 20:47:48,890 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:47:48,892 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: /products/unsafe-search/' OR '1'='1
+2025-02-06 20:47:48,892 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数，使用ML模型进行精确检测: /products/unsafe-search/' OR '1'='1
+2025-02-06 20:47:48,936 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: "/products/unsafe-search/' OR '1'='1"
+  - 预处理后: /products/unsafe-search/' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 56.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.004s
+  - 模型预测: 0.037s
+  - 总耗时: 0.041s
+2025-02-06 20:47:48,936 - sql_injection_middleware - INFO - ML模型检测结果 - 是否SQL注入: True, 置信度: 0.56, 参数: /products/unsafe-search/' OR '1'='1
+2025-02-06 20:47:48,938 - sql_injection_middleware - WARNING - SQL注入检测完成 [检测到攻击]
+总检测时间: 0.048s
+  - 布隆过滤器: 0.001s
+2025-02-06 20:47:48,938 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.048秒
+2025-02-06 20:47:48,938 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:47:48] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 20:47:52,352 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-06 20:47:52,352 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:47:52,354 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: /products/search/' OR '1'='1
+2025-02-06 20:47:52,355 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数，使用ML模型进行精确检测: /products/search/' OR '1'='1
+2025-02-06 20:47:52,390 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: "/products/search/' OR '1'='1"
+  - 预处理后: /products/search/' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 57.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.003s
+  - 模型预测: 0.032s
+  - 总耗时: 0.035s
+2025-02-06 20:47:52,391 - sql_injection_middleware - INFO - ML模型检测结果 - 是否SQL注入: True, 置信度: 0.57, 参数: /products/search/' OR '1'='1
+2025-02-06 20:47:52,392 - sql_injection_middleware - WARNING - SQL注入检测完成 [检测到攻击]
+总检测时间: 0.040s
+  - 布隆过滤器: 0.001s
+2025-02-06 20:47:52,392 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 0.040秒
+2025-02-06 20:47:52,393 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:47:52] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 20:47:56,489 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 20:47:56,490 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:47:56,492 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: /products/1
+2025-02-06 20:47:56,492 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: User-Agent
+2025-02-06 20:47:56,493 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Apifox/1.0.0 (https://apifox.com)
+2025-02-06 20:47:56,494 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: Accept
+2025-02-06 20:47:56,494 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: * 
+2025-02-06 20:47:56,495 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: Host
+2025-02-06 20:47:56,495 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: localhost:5000
+2025-02-06 20:47:56,496 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Accept-Encoding
+2025-02-06 20:47:56,498 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.002s]
+可疑参数: gzip, deflate, br
+2025-02-06 20:47:56,498 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+可疑参数: Connection
+2025-02-06 20:47:56,499 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+可疑参数: keep-alive
+2025-02-06 20:47:56,499 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.009秒
+2025-02-06 20:47:58,969 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.470秒
+2025-02-06 20:47:58,970 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:47:58] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 20:55:26,401 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:55:26,402 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:55:28,447 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:55:28,448 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:55:28,449 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:55:28,449 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:55:30,490 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:55:30,505 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:55:30,505 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:55:30,505 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:55:30,505 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:55:30,648 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:55:30,649 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:55:30,649 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:55:30,649 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:55:30,650 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:55:30,650 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:55:30,650 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:55:30,653 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-06 20:55:30,654 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 20:55:30,655 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 20:55:33,725 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:55:33,726 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:55:35,774 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:55:35,775 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:55:35,777 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:55:35,779 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:55:37,817 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:55:37,827 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:55:37,827 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:55:37,827 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:55:37,828 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:55:37,938 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:55:37,941 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:55:37,941 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:55:37,942 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:55:37,942 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:55:37,942 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:55:37,942 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:55:40,489 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 20:55:40,489 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:55:40,491 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.002s]
+2025-02-06 20:55:40,491 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.002秒
+2025-02-06 20:55:43,098 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.607秒
+2025-02-06 20:55:43,100 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:55:43] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 20:55:57,312 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 20:55:57,312 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:55:57,312 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.000s]
+2025-02-06 20:55:57,312 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.000秒
+2025-02-06 20:55:59,852 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.538秒
+2025-02-06 20:55:59,852 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:55:59] "GET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1" 200 -
+2025-02-06 20:58:00,548 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-06 20:58:00,994 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 20:58:04,106 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:04,107 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:58:06,153 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:58:06,154 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:58:06,155 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:06,155 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:58:08,193 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:58:08,214 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:58:08,214 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:58:08,214 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:58:08,214 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:58:08,323 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:58:08,324 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:58:08,324 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:58:08,324 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:58:08,324 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:58:08,325 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:58:08,325 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:58:42,006 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:42,006 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:58:44,045 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:58:44,045 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:58:44,047 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:44,047 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:58:46,089 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:58:46,105 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:58:46,105 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:58:46,105 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:58:46,106 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:58:46,209 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:58:46,210 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:58:46,210 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:58:46,210 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:58:46,210 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:58:46,211 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:58:46,211 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:58:46,214 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-06 20:58:46,214 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 20:58:46,216 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 20:58:49,229 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:49,229 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 20:58:51,276 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 20:58:51,277 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 20:58:51,278 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 20:58:51,279 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 20:58:53,327 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 20:58:53,365 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 20:58:53,365 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 20:58:53,365 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 20:58:53,365 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 20:58:53,474 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 20:58:53,475 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 20:58:53,475 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 20:58:53,475 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 20:58:53,475 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 20:58:53,475 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 20:58:53,476 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 20:59:00,139 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 20:59:00,141 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:59:00,141 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.001s]
+2025-02-06 20:59:00,141 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-06 20:59:02,635 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.493秒
+2025-02-06 20:59:02,635 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:59:02] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 20:59:08,519 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-06 20:59:08,519 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:59:08,519 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.000s]
+2025-02-06 20:59:08,519 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.000秒
+2025-02-06 20:59:11,118 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.597秒
+2025-02-06 20:59:11,119 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:59:11] "GET /products/search/'%20OR%20'1'='1 HTTP/1.1" 200 -
+2025-02-06 20:59:15,847 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 20:59:15,847 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 20:59:15,850 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.003s]
+2025-02-06 20:59:15,854 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.006秒
+2025-02-06 20:59:18,411 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.556秒
+2025-02-06 20:59:18,413 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 20:59:18] "GET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1" 200 -
+2025-02-06 21:00:49,806 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-06 21:00:50,235 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 21:00:53,269 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:00:53,270 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:00:55,310 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:00:55,311 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:00:55,312 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:00:55,314 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:00:57,366 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:00:57,378 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:00:57,378 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:00:57,378 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:00:57,378 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:00:57,489 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:00:57,492 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:00:57,493 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:00:57,493 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:00:57,493 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:00:57,493 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:00:57,493 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:01:26,871 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\bloom_filter.py', reloading
+2025-02-06 21:01:27,268 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 21:01:30,326 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:01:30,326 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:01:32,371 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:01:32,371 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:01:32,372 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:01:32,372 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:01:34,431 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:01:34,448 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:01:34,449 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:01:34,449 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:01:34,449 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:01:34,555 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:01:34,556 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:01:34,556 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:01:34,556 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:01:34,556 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:01:34,556 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:01:34,557 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:02:03,484 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:02:03,484 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:02:05,527 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:02:05,529 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:02:05,529 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:02:05,529 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:02:07,581 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:02:07,596 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:02:07,596 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:02:07,596 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:02:07,597 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:02:07,699 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:02:07,701 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:02:07,701 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:02:07,701 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:02:07,701 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:02:07,702 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:02:07,702 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:02:07,705 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-06 21:02:07,706 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 21:02:07,707 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 21:02:10,666 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:02:10,667 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:02:12,720 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:02:12,721 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:02:12,722 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:02:12,723 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:02:14,756 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:02:14,767 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:02:14,767 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:02:14,767 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:02:14,768 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:02:14,876 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:02:14,878 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:02:14,878 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:02:14,878 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:02:14,879 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:02:14,879 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:02:14,879 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:02:17,559 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 21:02:17,559 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:02:17,560 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.001s]
+2025-02-06 21:02:17,560 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-06 21:02:20,100 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.540秒
+2025-02-06 21:02:20,101 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:02:20] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 21:02:23,593 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 21:02:23,593 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:02:23,595 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.002s]
+2025-02-06 21:02:23,595 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.002秒
+2025-02-06 21:02:26,129 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.534秒
+2025-02-06 21:02:26,129 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:02:26] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 21:02:33,620 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-06 21:02:33,622 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:02:33,624 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-06 21:02:33,625 - sql_injection_middleware - ERROR - SQL注入检测过程中发生错误: 'MLDetector' object has no attribute 'detect_sql_injection'
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 345, in _check_sql_injection
+    ml_result = self.ml_detector.detect_sql_injection(param)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MLDetector' object has no attribute 'detect_sql_injection'
+2025-02-06 21:02:33,626 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.004秒
+2025-02-06 21:02:36,082 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.455秒
+2025-02-06 21:02:36,083 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:02:36] "GET /products/search/'%20OR%20'1'='1 HTTP/1.1" 200 -
+2025-02-06 21:03:40,842 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-06 21:03:41,391 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 21:03:44,481 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:03:44,482 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:03:46,526 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:03:46,526 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:03:46,527 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:03:46,527 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:03:48,572 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:03:48,584 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:03:48,585 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:03:48,585 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:03:48,585 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:03:48,689 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:03:48,691 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:03:48,691 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:03:48,691 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:03:48,691 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:03:48,691 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:03:48,692 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:04:08,915 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:04:08,916 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:04:10,970 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:04:10,970 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:04:10,971 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:04:10,972 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:04:13,012 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:04:13,026 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:04:13,026 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:04:13,026 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:04:13,027 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:04:13,132 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:04:13,133 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:04:13,133 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:04:13,134 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:04:13,134 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:04:13,134 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:04:13,134 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:04:13,138 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-06 21:04:13,138 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 21:04:13,139 - werkzeug - INFO -  * Restarting with stat
+2025-02-06 21:04:16,130 - sql_injection_middleware - INFO - 正在连接Redis服务器...
+2025-02-06 21:04:16,130 - sql_injection_middleware - INFO - 正在测试Redis连接...
+2025-02-06 21:04:18,181 - sql_injection_middleware - INFO - Redis连接测试结果: True
+2025-02-06 21:04:18,182 - sql_injection_middleware - INFO - 正在初始化布隆过滤器...
+2025-02-06 21:04:18,183 - sql_injection_middleware.bloom_filter - INFO - 正在连接Redis服务器...
+2025-02-06 21:04:18,184 - sql_injection_middleware.bloom_filter - INFO - 正在测试Redis连接...
+2025-02-06 21:04:20,233 - sql_injection_middleware.bloom_filter - INFO - Redis连接测试结果: True
+2025-02-06 21:04:20,244 - sql_injection_middleware.bloom_filter - INFO - 布隆过滤器初始化完成
+2025-02-06 21:04:20,244 - sql_injection_middleware - INFO - 布隆过滤器初始化成功
+2025-02-06 21:04:20,244 - sql_injection_middleware - INFO - 正在初始化ML检测器...
+2025-02-06 21:04:20,245 - sql_injection_middleware.ml_detector - INFO - 正在加载random_forest模型: D:\Source\WBSID\models\random_forest_model.joblib
+2025-02-06 21:04:20,359 - sql_injection_middleware.ml_detector - INFO - 模型加载成功
+2025-02-06 21:04:20,360 - sql_injection_middleware.ml_detector - INFO - 特征提取器 statistical 初始化成功
+2025-02-06 21:04:20,360 - sql_injection_middleware.ml_detector - INFO - 特征提取器 sql_semantic 初始化成功
+2025-02-06 21:04:20,360 - sql_injection_middleware - INFO - ML检测器初始化成功
+2025-02-06 21:04:20,360 - sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-06 21:04:20,360 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-06 21:04:20,360 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-06 21:04:24,830 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 21:04:24,831 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:04:24,831 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.000s]
+2025-02-06 21:04:24,832 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-06 21:04:28,553 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 3.721秒
+2025-02-06 21:04:28,555 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:04:28] "GET /products/1 HTTP/1.1" 200 -
+2025-02-06 21:04:36,556 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-06 21:04:36,557 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:04:36,559 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-06 21:04:36,593 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.002s
+  - 模型预测: 0.032s
+  - 总耗时: 0.034s
+2025-02-06 21:04:36,594 - sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.035s]
+2025-02-06 21:04:36,595 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 0.037秒
+2025-02-06 21:04:36,596 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:04:36] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 21:04:38,165 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-06 21:04:38,165 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:04:38,167 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-06 21:04:38,202 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.003s
+  - 模型预测: 0.031s
+  - 总耗时: 0.034s
+2025-02-06 21:04:38,202 - sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.034s]
+2025-02-06 21:04:38,203 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 0.037秒
+2025-02-06 21:04:38,204 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:04:38] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 21:04:40,805 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 21:04:40,806 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:04:40,811 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-06 21:04:40,846 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.003s
+  - 模型预测: 0.031s
+  - 总耗时: 0.034s
+2025-02-06 21:04:40,846 - sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.035s]
+2025-02-06 21:04:40,847 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.041秒
+2025-02-06 21:04:40,848 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:04:40] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 21:05:15,958 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 21:05:15,958 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:05:15,959 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.000s]
+2025-02-06 21:05:15,993 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.002s
+  - 模型预测: 0.032s
+  - 总耗时: 0.034s
+2025-02-06 21:05:15,994 - sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.035s]
+2025-02-06 21:05:15,994 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.036秒
+2025-02-06 21:05:15,995 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:05:15] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 21:05:46,525 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-06 21:05:46,525 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:05:46,527 - sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-06 21:05:46,561 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.004s
+  - 模型预测: 0.030s
+  - 总耗时: 0.033s
+2025-02-06 21:05:46,562 - sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.034s]
+2025-02-06 21:05:46,563 - sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.037秒
+2025-02-06 21:05:46,563 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:05:46] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-06 21:06:07,879 - sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-06 21:06:07,879 - sql_injection_middleware - INFO - 开始预处理参数
+2025-02-06 21:06:07,881 - sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.002s]
+2025-02-06 21:06:07,881 - sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.002秒
+2025-02-06 21:06:10,420 - sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.538秒
+2025-02-06 21:06:10,421 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:06:10] "GET /products/1 HTTP/1.1" 200 -
