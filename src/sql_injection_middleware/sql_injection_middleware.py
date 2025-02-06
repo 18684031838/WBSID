@@ -224,105 +224,118 @@ class SQLInjectionMiddleware:
         3. 如果布隆过滤器检测到可疑，则使用机器学习模型进行进一步检测
         4. 如果布隆过滤器未检测到，则直接返回安全
         """
-        self.logger.info(f"开始检查SQL注入 - 请求方法: {request.method}, URL: {request.url}")
-        
-        # 获取所有可能包含SQL注入的参数
-        params = []
-        
-        # 检查URL参数
-        url_args = list(request.args.values())
-        url_arg_keys = list(request.args.keys())
-        self.logger.debug(f"URL参数: {url_args}")
-        self.logger.debug(f"URL参数名: {url_arg_keys}")
-        params.extend(url_args)
-        params.extend(url_arg_keys)
-        
-        # 检查URL路径
-        self.logger.debug(f"URL路径: {request.path}")
-        params.append(request.path)
-        
-        # 检查请求头
-        headers = [(name, value) for name, value in request.headers]
-        self.logger.debug(f"请求头: {headers}")
-        for header_name, header_value in headers:
-            params.extend([header_name, header_value])
-        
-        # 检查Cookie
-        cookies = list(request.cookies.items())
-        self.logger.debug(f"Cookies: {cookies}")
-        params.extend(request.cookies.values())
-        params.extend(request.cookies.keys())
-        
-        # 检查POST数据
-        if request.method == 'POST':
-            self.logger.debug(f"Content-Type: {request.content_type}")
-            if request.is_json:
-                self.logger.debug("检测到JSON数据")
-                # 递归检查JSON数据
-                def extract_values(obj):
-                    if isinstance(obj, dict):
-                        for key, value in obj.items():
-                            params.append(str(key))
-                            if isinstance(value, (dict, list)):
-                                extract_values(value)
-                            else:
-                                params.append(str(value))
-                    elif isinstance(obj, list):
-                        for item in obj:
-                            if isinstance(item, (dict, list)):
-                                extract_values(item)
-                            else:
-                                params.append(str(item))
-                
-                json_data = request.get_json()
-                self.logger.debug(f"JSON数据: {json_data}")
-                extract_values(json_data)
-            else:
-                form_data = list(request.form.items())
-                self.logger.debug(f"表单数据: {form_data}")
-                params.extend(request.form.values())
-                params.extend(request.form.keys())
-        
-        # 预处理所有参数
-        self.logger.info("开始预处理参数")
-        params = self._preprocess_parameters(params)
-        
-        # 检查每个参数
-        for param in params:
-            if not param:  # 跳过空参数
-                continue
-                
-            self.logger.debug(f"检查参数: {param}")
+        start_time = time.time()
+        try:
+            # 获取所有请求参数
+            params = []
             
-            # 首先使用布隆过滤器快速检测
-            if self.bloom_filter:
-                bloom_result = self.bloom_filter.check_sql_injection(param)
-                self.logger.debug(f"布隆过滤器检测结果: {bloom_result}, 参数: {param}")
+            # 检查URL参数
+            url_args = list(request.args.values())
+            url_arg_keys = list(request.args.keys())
+            self.logger.debug(f"URL参数: {url_args}")
+            self.logger.debug(f"URL参数名: {url_arg_keys}")
+            params.extend(url_args)
+            params.extend(url_arg_keys)
+            
+            # 检查URL路径
+            self.logger.debug(f"URL路径: {request.path}")
+            params.append(request.path)
+            
+            # 检查请求头
+            headers = [(name, value) for name, value in request.headers]
+            self.logger.debug(f"请求头: {headers}")
+            for header_name, header_value in headers:
+                params.extend([header_name, header_value])
+            
+            # 检查Cookie
+            cookies = list(request.cookies.items())
+            self.logger.debug(f"Cookies: {cookies}")
+            params.extend(request.cookies.values())
+            params.extend(request.cookies.keys())
+            
+            # 检查POST数据
+            if request.method == 'POST':
+                self.logger.debug(f"Content-Type: {request.content_type}")
+                if request.is_json:
+                    self.logger.debug("检测到JSON数据")
+                    # 递归检查JSON数据
+                    def extract_values(obj):
+                        if isinstance(obj, dict):
+                            for key, value in obj.items():
+                                params.append(str(key))
+                                if isinstance(value, (dict, list)):
+                                    extract_values(value)
+                                else:
+                                    params.append(str(value))
+                        elif isinstance(obj, list):
+                            for item in obj:
+                                if isinstance(item, (dict, list)):
+                                    extract_values(item)
+                                else:
+                                    params.append(str(item))
+                    
+                    json_data = request.get_json()
+                    self.logger.debug(f"JSON数据: {json_data}")
+                    extract_values(json_data)
+                else:
+                    form_data = list(request.form.items())
+                    self.logger.debug(f"表单数据: {form_data}")
+                    params.extend(request.form.values())
+                    params.extend(request.form.keys())
+            
+            # 预处理所有参数
+            self.logger.info("开始预处理参数")
+            params = self._preprocess_parameters(params)
+            
+            # 检查每个参数
+            for param in params:
+                if not param:  # 跳过空参数
+                    continue
+                    
+                self.logger.debug(f"检查参数: {param}")
                 
-                if bloom_result:
-                    # 布隆过滤器检测到可疑，使用ML模型进行精确检测
-                    self.logger.info(f"布隆过滤器检测到可疑参数，使用ML模型进行精确检测: {param}")
+                # 首先使用布隆过滤器快速检测
+                bloom_start = time.time()
+                if self.bloom_filter:
+                    bloom_result = self.bloom_filter.check_sql_injection(param)
+                    bloom_time = time.time() - bloom_start
+                    self.logger.info(
+                        f"布隆过滤器检测到可疑参数 [耗时: {bloom_time:.3f}s]\n"
+                        f"可疑参数: {param}"
+                    )
+                    
+                    if bloom_result:
+                        # 布隆过滤器检测到可疑，使用ML模型进行精确检测
+                        self.logger.info(f"布隆过滤器检测到可疑参数，使用ML模型进行精确检测: {param}")
+                        is_injection, confidence = self.ml_detector.detect(param)
+                        self.logger.info(f"ML模型检测结果 - 是否SQL注入: {is_injection}, 置信度: {confidence}, 参数: {param}")
+                        
+                        if is_injection:
+                            total_time = time.time() - start_time
+                            self.logger.warning(
+                                f"SQL注入检测完成 [检测到攻击]\n"
+                                f"总检测时间: {total_time:.3f}s\n"
+                                f"  - 布隆过滤器: {bloom_time:.3f}s"
+                            )
+                            return True
+                        else:
+                            self.logger.info(f"布隆过滤器误报, 参数: {param}, ML模型置信度: {confidence}")
+                else:
+                    self.logger.warning(f"布隆过滤器未启用，直接使用ML模型进行检测: {param}")
                     is_injection, confidence = self.ml_detector.detect(param)
                     self.logger.info(f"ML模型检测结果 - 是否SQL注入: {is_injection}, 置信度: {confidence}, 参数: {param}")
                     
                     if is_injection:
                         self.logger.warning(f"检测到SQL注入攻击, 参数: {param}, 置信度: {confidence}")
                         return True
-                    else:
-                        self.logger.info(f"布隆过滤器误报, 参数: {param}, ML模型置信度: {confidence}")
-                else:
-                    self.logger.debug(f"布隆过滤器未检测到可疑，判定为安全: {param}")
-            else:
-                self.logger.warning(f"布隆过滤器未启用，直接使用ML模型进行检测: {param}")
-                is_injection, confidence = self.ml_detector.detect(param)
-                self.logger.info(f"ML模型检测结果 - 是否SQL注入: {is_injection}, 置信度: {confidence}, 参数: {param}")
-                
-                if is_injection:
-                    self.logger.warning(f"检测到SQL注入攻击, 参数: {param}, 置信度: {confidence}")
-                    return True
-        
-        self.logger.info("SQL注入检测完成，未发现攻击")
-        return False
+            
+            # 所有参数检测通过
+            self.logger.debug(f"SQL注入检测完成 [正常请求] 耗时: {time.time() - start_time:.3f}s")
+            return False
+            
+        except Exception as e:
+            self.logger.error(f"SQL注入检测失败: {str(e)}")
+            raise
     
     def _forward_request(self, request):
         """转发请求到后端服务"""
