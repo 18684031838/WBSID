@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 # 自动读取requirements.txt中的依赖
-with open('src/requirements.txt') as f:
+with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(

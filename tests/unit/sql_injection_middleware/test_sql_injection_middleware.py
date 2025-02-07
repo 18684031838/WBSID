@@ -1,5 +1,5 @@
 import pytest
-from src.sql_injection_middleware.sql_injection_middleware import SQLInjectionMiddleware, RedisConnectionError
+from sql_injection_middleware.sql_injection_middleware import SQLInjectionMiddleware, RedisConnectionError
 from werkzeug.wrappers import Request
 from werkzeug.test import EnvironBuilder
 import urllib.parse
@@ -24,7 +24,7 @@ class TestHandler(logging.Handler):
 def test_logger():
     """创建测试用的日志处理器"""
     handler = TestHandler()
-    logger = logging.getLogger('src.sql_injection_middleware.sql_injection_middleware')
+    logger = logging.getLogger('sql_injection_middleware.sql_injection_middleware')
     logger.addHandler(handler)
     logger.setLevel(logging.DEBUG)
     yield handler
@@ -44,7 +44,7 @@ class TestSQLInjectionMiddlewarePreprocessing:
         try:
             # Mock Redis和布隆过滤器
             mocker.patch('redis.Redis.ping', return_value=True)
-            mocker.patch('src.sql_injection_middleware.sql_injection_middleware.SQLInjectionBloomFilter')
+            mocker.patch('sql_injection_middleware.sql_injection_middleware.SQLInjectionBloomFilter')
             middleware = SQLInjectionMiddleware()
             return middleware
         except RedisConnectionError:
@@ -73,6 +73,7 @@ class TestSQLInjectionMiddlewarePreprocessing:
          ["UNION SELECT", "admin' OR (1=1"])
     ])
     def test_parameter_preprocessing(self, mock_middleware, dummy_request, input_params, expected):
+      
         # Test with query parameters
         test_request = dummy_request(data={'q': input_params})
         raw_params = input_params
