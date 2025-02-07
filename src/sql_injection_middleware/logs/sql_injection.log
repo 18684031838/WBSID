@@ -2052,3 +2052,829 @@ requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://local
 2025-02-07 09:13:16,189 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.620, 耗时: 0.034s]
 2025-02-07 09:13:16,191 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.038秒
 2025-02-07 09:13:16,191 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:13:16] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:31:44,230 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:31:44,230 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:31:44,230 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:31:44,234 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 09:31:44,234 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 09:31:44,236 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 09:31:51,442 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:31:51,442 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:31:51,442 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:31:59,419 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:31:59,419 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:31:59,420 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.001s]
+2025-02-07 09:31:59,420 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-07 09:32:02,045 - sql_injection_middleware.sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.624秒
+2025-02-07 09:32:02,045 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:32:02] "GET /products/1 HTTP/1.1" 200 -
+2025-02-07 09:32:05,379 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-07 09:32:05,379 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:32:05,384 - sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 09:32:05,425 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 68.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.006s
+  - 模型预测: 0.036s
+  - 总耗时: 0.042s
+2025-02-07 09:32:05,426 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.680, 耗时: 0.043s]
+2025-02-07 09:32:05,427 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 0.049秒
+2025-02-07 09:32:05,427 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:32:05] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:32:08,779 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-07 09:32:08,780 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:32:08,782 - sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 09:32:08,821 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 68.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.003s
+  - 模型预测: 0.035s
+  - 总耗时: 0.038s
+2025-02-07 09:32:08,822 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.680, 耗时: 0.039s]
+2025-02-07 09:32:08,826 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.046秒
+2025-02-07 09:32:08,826 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:32:08] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:32:11,875 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:32:11,876 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:32:11,877 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.001s]
+2025-02-07 09:32:11,877 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-07 09:32:14,389 - sql_injection_middleware.sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.512秒
+2025-02-07 09:32:14,389 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:32:14] "GET /products/1 HTTP/1.1" 200 -
+2025-02-07 09:40:15,784 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:40:15,784 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:40:15,784 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:40:15,787 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 09:40:15,787 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 09:40:15,789 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 09:40:22,780 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:40:22,780 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:40:22,780 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:41:52,732 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-07 09:41:52,732 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:41:52,734 - sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 09:41:52,773 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 61.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.002s
+  - 模型预测: 0.036s
+  - 总耗时: 0.038s
+2025-02-07 09:41:52,773 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.610, 耗时: 0.038s]
+2025-02-07 09:41:52,774 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.041秒
+2025-02-07 09:41:52,775 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:41:52] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:42:11,889 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-07 09:42:11,889 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:42:11,891 - sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 09:42:11,928 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 61.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.003s
+  - 模型预测: 0.034s
+  - 总耗时: 0.037s
+2025-02-07 09:42:11,929 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.610, 耗时: 0.038s]
+2025-02-07 09:42:11,929 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.040秒
+2025-02-07 09:42:11,929 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:42:11] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:42:56,865 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1
+2025-02-07 09:42:56,866 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:42:56,867 - sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 09:42:56,905 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 61.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.007s
+  - 模型预测: 0.031s
+  - 总耗时: 0.038s
+2025-02-07 09:42:56,906 - sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.610, 耗时: 0.039s]
+2025-02-07 09:42:56,907 - sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/unsafe-search/'%20OR%20'1'='1, 检测耗时: 0.041秒
+2025-02-07 09:42:56,907 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:42:56] "[31m[1mGET /products/unsafe-search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 09:43:04,464 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:43:04,464 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:43:04,466 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.002s]
+2025-02-07 09:43:04,467 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.003秒
+2025-02-07 09:43:08,550 - sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 441, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 279, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 214, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 09:43:08,555 - sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 441, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 279, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connection.py", line 214, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Anaconda\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 157, in __call__
+    backend_response = self._forward_request(request)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Anaconda\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023A6B68DF70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 09:43:08,558 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:43:08] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2025-02-07 09:43:24,882 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:43:24,883 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:43:24,884 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.001s]
+2025-02-07 09:43:24,884 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.001秒
+2025-02-07 09:43:29,399 - sql_injection_middleware.sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 4.515秒
+2025-02-07 09:43:29,400 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:43:29] "GET /products/1 HTTP/1.1" 200 -
+2025-02-07 09:43:42,372 - sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:43:42,372 - sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:43:42,374 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 0.002s]
+2025-02-07 09:43:42,374 - sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 0.002秒
+2025-02-07 09:43:44,927 - sql_injection_middleware.sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.552秒
+2025-02-07 09:43:44,927 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:43:44] "GET /products/1 HTTP/1.1" 200 -
+2025-02-07 09:56:46,635 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:56:46,635 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:56:46,636 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:56:46,641 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 09:56:46,642 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 09:56:46,756 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 09:56:56,912 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 09:56:56,913 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 09:56:56,913 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 09:57:16,403 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 09:59:06,242 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 09:59:16,683 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 97.151s]
+2025-02-07 09:59:26,583 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 109.339秒
+2025-02-07 09:59:34,534 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 09:59:34,542 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 157, in __call__
+    backend_response = self._forward_request(request)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002625C3EB200>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 09:59:34,554 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 09:59:34] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2025-02-07 10:03:43,226 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:03:43,226 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:03:43,226 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:03:43,231 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 10:03:43,232 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 10:03:43,233 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 10:03:53,131 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:03:53,131 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:03:53,132 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:03:57,067 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 10:05:10,352 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 10:05:10,353 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 53.570s]
+2025-02-07 10:05:10,353 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 56.875秒
+2025-02-07 10:05:14,454 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 10:05:14,463 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 157, in __call__
+    backend_response = self._forward_request(request)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 410, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001F4D3BDBE30>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 10:05:14,473 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 10:05:14] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2025-02-07 10:06:06,920 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-07 10:06:08,102 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 10:06:17,952 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:06:17,953 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:06:17,953 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:06:43,138 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-07 10:06:48,482 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 10:06:58,466 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:06:58,467 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:06:58,467 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:07:41,019 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 10:08:09,783 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 10:08:25,519 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 38.307s]
+2025-02-07 10:08:28,546 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 43.514秒
+2025-02-07 10:08:33,693 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 428, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 10:08:41,412 - src.sql_injection_middleware.sql_injection_middleware - ERROR - 转发请求失败: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+    conn.request(
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 445, in request
+    self.endheaders()
+  File "D:\Anaconda\Lib\http\client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "D:\Anaconda\Lib\http\client.py", line 1091, in _send_output
+    self.send(msg)
+  File "D:\Anaconda\Lib\http\client.py", line 1035, in send
+    self.connect()
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 276, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 157, in __call__
+    backend_response = self._forward_request(request)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Source\WBSID\src\sql_injection_middleware\sql_injection_middleware.py", line 428, in _forward_request
+    response = requests.request(
+               ^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\Source\WBSID\.venv\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /products/1 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000271BAB45E80>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+2025-02-07 10:08:45,734 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 10:08:45] "[35m[1mGET /products/1 HTTP/1.1[0m" 500 -
+2025-02-07 10:24:51,104 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:24:51,104 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:24:51,105 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:24:51,109 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 10:24:51,109 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 10:24:51,111 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 10:25:01,054 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 10:25:01,055 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 10:25:01,055 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 10:25:24,723 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/1
+2025-02-07 10:25:30,860 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 10:25:30,877 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测完成 [总耗时: 6.152s]
+2025-02-07 10:25:30,878 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入检测通过，检测耗时: 6.153秒
+2025-02-07 10:25:33,629 - src.sql_injection_middleware.sql_injection_middleware - INFO - 请求转发完成 - 状态码: 200, 耗时: 2.751秒
+2025-02-07 10:25:33,631 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 10:25:33] "GET /products/1 HTTP/1.1" 200 -
+2025-02-07 10:25:45,388 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-07 10:33:57,320 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 10:34:18,354 - src.sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 6.091s]
+2025-02-07 10:38:16,824 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 62.00%
+时间消耗:
+  - 预处理: 180.414s
+  - 特征提取: 33.163s
+  - 模型预测: 5.369s
+  - 总耗时: 223.122s
+2025-02-07 10:38:19,942 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.620, 耗时: 236.189s]
+2025-02-07 10:38:29,783 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 756.590秒
+2025-02-07 10:38:32,842 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 10:38:32] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 11:24:44,604 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:24:44,605 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:24:44,605 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:24:44,610 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 11:24:44,611 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 11:24:44,613 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 11:24:54,666 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:24:54,666 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:24:54,667 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:27:29,058 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-07 11:27:58,916 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 11:27:58,919 - src.sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 0.001s]
+2025-02-07 11:27:58,970 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.001s
+  - 特征提取: 0.006s
+  - 模型预测: 0.044s
+  - 总耗时: 0.051s
+2025-02-07 11:27:58,971 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.052s]
+2025-02-07 11:27:58,972 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 27.905秒
+2025-02-07 11:27:58,974 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 11:27:58] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -
+2025-02-07 11:29:11,493 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-07 11:29:14,101 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 11:29:26,172 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:29:26,173 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:29:26,173 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:29:50,484 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-07 11:29:54,095 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 11:30:04,217 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:30:04,217 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:30:04,218 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:30:57,004 - werkzeug - INFO -  * Detected change in 'D:\\Source\\WBSID\\src\\sql_injection_middleware\\sql_injection_middleware.py', reloading
+2025-02-07 11:31:00,642 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 11:36:11,311 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:36:11,311 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:36:11,311 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:36:11,316 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://localhost:5000
+2025-02-07 11:36:11,317 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-07 11:36:11,319 - werkzeug - INFO -  * Restarting with stat
+2025-02-07 11:36:23,744 - src.sql_injection_middleware.sql_injection_middleware - INFO - SQL注入防御中间件已初始化
+2025-02-07 11:36:23,744 - sql_injection_middleware - INFO - SQL注入防护中间件初始化完成
+2025-02-07 11:36:23,744 - sql_injection_middleware - INFO - 启动服务器...
+2025-02-07 11:36:25,963 - src.sql_injection_middleware.sql_injection_middleware - INFO - 收到新请求 - 方法: GET, URL: http://localhost:5000/products/search/'%20OR%20'1'='1
+2025-02-07 11:36:45,452 - src.sql_injection_middleware.sql_injection_middleware - INFO - 开始预处理参数
+2025-02-07 11:37:05,367 - src.sql_injection_middleware.sql_injection_middleware - INFO - 布隆过滤器检测到可疑参数 [耗时: 2.925s]
+2025-02-07 11:37:07,119 - sql_injection_middleware.ml_detector - WARNING - 检测到SQL注入攻击
+检测参数:
+  - 原始请求: {"param": "' OR '1'='1"}
+  - 预处理后: ' OR '1'='1
+检测结果:
+  - 是否注入: True
+  - 置信度: 60.00%
+时间消耗:
+  - 预处理: 0.000s
+  - 特征提取: 0.009s
+  - 模型预测: 0.083s
+  - 总耗时: 0.092s
+2025-02-07 11:37:08,337 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 机器学习模型确认SQL注入 [置信度: 0.600, 耗时: 0.744s]
+2025-02-07 11:37:12,297 - src.sql_injection_middleware.sql_injection_middleware - WARNING - 检测到SQL注入攻击: http://localhost:5000/products/search/'%20OR%20'1'='1, 检测耗时: 43.830秒
+2025-02-07 11:37:12,299 - werkzeug - INFO - 127.0.0.1 - - [07/Feb/2025 11:37:12] "[31m[1mGET /products/search/'%20OR%20'1'='1 HTTP/1.1[0m" 403 -

@@ -283,18 +283,11 @@ class SQLInjectionMiddleware:
             path = request.path
             path_segments = path.split('/')
             # 检查路径中每个部分，主要关注可能包含参数的部分
-            for segment in path_segments:
-                if segment and any(char in segment for char in "'\"=<>(){}[]"):
-                    self.logger.debug(f"发现URL路径参数: {segment}")
-                    params.append(segment)
-                # 检查是否包含特定的端点名称，这些端点可能接受参数
-                elif segment and any(endpoint in segment.lower() for endpoint in ['search', 'query', 'find', 'select', 'get']):
-                    # 如果是参数相关的端点，检查下一个路径段
-                    next_index = path_segments.index(segment) + 1
-                    if next_index < len(path_segments) and path_segments[next_index]:
-                        self.logger.debug(f"发现参数端点的值: {path_segments[next_index]}")
-                        params.append(path_segments[next_index])
-            
+            for i, segment in enumerate(path_segments):
+                if not segment:
+                    continue                                  
+                params.append(segment)               
+              
             # 检查URL查询参数值（只检查值不检查键）
             url_args = list(request.args.values())
             self.logger.debug(f"URL参数值: {url_args}")
