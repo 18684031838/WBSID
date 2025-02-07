@@ -153,6 +153,19 @@ pip install -r src/requirements.txt
 
 现在系统已经启动完成，您可以通过HTTP请求来测试SQL注入检测功能。
 
+## 测试
+
+```bash
+# 安装测试依赖
+pip install -r requirements-dev.txt
+
+# 运行全部测试
+pytest tests/unit -v
+
+# 生成覆盖率报告
+pytest --cov=src --cov-report=html tests/unit/
+```
+
 ## 模型训练与性能测试
 
 ### 模型训练

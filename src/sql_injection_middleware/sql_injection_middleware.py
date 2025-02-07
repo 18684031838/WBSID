@@ -29,6 +29,10 @@ if hasattr(sys.stdout, 'encoding') and sys.stdout.encoding != 'utf-8':
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
         sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer)
 
+class RedisConnectionError(Exception):
+    """Redis连接失败时抛出的异常"""
+    pass
+
 class SQLInjectionMiddleware:
     """SQL注入防御中间件
     
@@ -42,12 +46,8 @@ class SQLInjectionMiddleware:
             app: WSGI应用
             config: 配置字典，包含model_path和confidence_threshold
         """
-        self.app = app
-        self.config = config or {}
-        
-        # 配置日志
-        logging.config.dictConfig(LOGGING_CONFIG)
-        self.logger = logging.getLogger('sql_injection_middleware')
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("正在连接Redis服务器...")
         
         try:
             # 打印Redis配置信息
@@ -65,11 +65,10 @@ class SQLInjectionMiddleware:
             #self.logger.info(f"Redis配置信息: {redis_config}")
             
             # 初始化Redis连接
-            self.logger.info("正在连接Redis服务器...")
+            self.logger.info("正在测试Redis连接...")
             self.redis_client = Redis(**redis_config)
             
             # 测试连接
-            self.logger.info("正在测试Redis连接...")
             pong = self.redis_client.ping()
             self.logger.info(f"Redis连接测试结果: {pong}")
             
@@ -79,9 +78,8 @@ class SQLInjectionMiddleware:
             self.logger.info("布隆过滤器初始化成功")
             
         except (redis.ConnectionError, redis.TimeoutError) as e:
-            self.logger.warning(f"Redis连接失败，将禁用布隆过滤器: {str(e)}")
-            self.redis_client = None
-            self.bloom_filter = None
+            self.logger.error(f"Redis连接失败: {str(e)}")
+            raise RedisConnectionError(f"Redis连接失败: {str(e)}")
         except Exception as e:
             self.logger.error(f"Redis或布隆过滤器初始化时发生未知错误: {str(e)}", exc_info=True)
             self.redis_client = None
@@ -104,6 +102,13 @@ class SQLInjectionMiddleware:
             db=REDIS_CONFIG['cache_db']
         )
         self.cache_ttl = REDIS_CONFIG['cache_ttl']
+        
+        self.app = app
+        self.config = config or {}
+        self.fallback_mode = False
+        
+        # 配置日志
+        logging.config.dictConfig(LOGGING_CONFIG)
         
         self.logger.info("SQL注入防御中间件已初始化")
     
@@ -174,79 +179,87 @@ class SQLInjectionMiddleware:
             )
             return response(environ, start_response)
     
-    def _preprocess_parameters(self, params):
-        """预处理参数列表，处理各种编码和混淆
-        
+    def _preprocess_parameters(self, parameters):
+        """预处理请求参数，清理和标准化输入
+
         Args:
-            params: 参数列表
-            
+            parameters: 请求参数列表
+
         Returns:
-            list: 处理后的参数列表
+            处理后的参数列表
         """
-        processed_params = []
-        self.logger.debug(f"开始预处理参数，原始参数数量: {len(params)}")
-        
-        for param in params:
-            if not param:  # 跳过空参数
+        if not parameters:
+            return []
+
+        # SQL关键字列表
+        sql_keywords = {
+            r'SEL\s*E?\s*C?\s*T(?:\s*\*)?': 'SELECT',  # 匹配SELECT和SELECT *，但只保留SELECT
+            r'UNI\s*O?\s*N': 'UNION',
+            r'ORD\s*E?\s*R': 'ORDER',
+            r'WH\s*E?\s*RE': 'WHERE',
+            r'FR\s*O?\s*M': 'FROM',
+            r'DR\s*O?\s*P': 'DROP',
+            r'DE\s*LE?\s*TE': 'DELETE',
+            r'UP\s*D?\s*A?\s*TE': 'UPDATE',
+            r'IN\s*S?\s*E?\s*RT': 'INSERT',
+            r'EXE\s*C?\s*U?\s*TE': 'EXECUTE'
+        }
+
+        processed = []
+        for param in parameters:
+            if not isinstance(param, str):
                 continue
+
+            # 1. 处理多重URL编码
+            while '%' in param:
+                prev_param = param
+                param = urllib.parse.unquote(param)
+                if prev_param == param:
+                    break
+
+            # 2. HTML实体解码
+            param = html.unescape(param)
+
+            # 3. 处理十六进制编码
+            def hex_decode(match):
+                try:
+                    return bytes.fromhex(match.group(1)).decode('ascii')
+                except (ValueError, UnicodeDecodeError):
+                    return match.group(0)
+
+            param = re.sub(r'0x([0-9a-fA-F]+)', hex_decode, param)
+
+            # 4. 删除注释
+            param = re.sub(r'/\*[\s\S]*?\*/', ' ', param)  # 多行注释
+            param = re.sub(r'--[^\n]*', ' ', param)  # 单行注释
+            param = re.sub(r'#[^\n]*', ' ', param)   # MySQL风格注释
+
+            # 5. 处理特殊字符
+            special_chars = ['\x00', '\x08', '\x09', '\x0a', '\x0d', '\x1a', '\xa0']
+            for char in special_chars:
+                param = param.replace(char, ' ')
+
+            # 6. 标准化空白字符
+            param = ' '.join(param.split())
+
+            # 7. 标准化SQL关键字
+            param_lower = param.lower()
             
-            self.logger.debug(f"处理参数前: {param}")
+            # 先处理SELECT *的情况
+            select_star_pattern = r'\bSEL\s*E?\s*C?\s*T\s*\*'
+            if re.search(select_star_pattern, param_lower, re.IGNORECASE):
+                param = re.sub(select_star_pattern, 'SELECT', param, flags=re.IGNORECASE)
             
-            try:
-                # 1. 首先进行URL解码（可能需要多次解码）
-                decoded_param = param
-                prev_param = None
-                decode_count = 0
-                max_decode_attempts = 3  # 防止无限循环
-                
-                while decoded_param != prev_param and decode_count < max_decode_attempts:
-                    prev_param = decoded_param
-                    try:
-                        decoded_param = urllib.parse.unquote(decoded_param)
-                        decode_count += 1
-                        self.logger.debug(f"URL解码 #{decode_count}: {decoded_param}")
-                    except Exception as e:
-                        self.logger.warning(f"URL解码失败: {str(e)}")
-                        break
-                
-                param = decoded_param
-                
-                # 2. HTML实体解码
-                param = html.unescape(param)
-                
-                # 3. 处理混淆的空白字符
-                param = param.replace('\t', ' ').replace('\r', ' ').replace('\n', ' ')
-                param = re.sub(r'\s+', ' ', param.strip())  # 合并多个空白字符
-                
-                # 4. 处理注释和内联注释
-                param = re.sub(r'/\*.*?\*/', ' ', param)  # 移除多行注释
-                param = re.sub(r'--.*$', ' ', param)      # 移除单行注释
-                param = re.sub(r'#.*$', ' ', param)       # 移除#注释
-                
-                # 5. 处理特殊字符
-                param = param.replace('\x00', '')  # 空字节
-                
-                # 6. 处理SQL关键字的常见变体
-                param = re.sub(r'\/\*!?\d*\s*', '', param)  # 移除MySQL版本注释
-                param = re.sub(r'union\s*all\s*select', 'union select', param, flags=re.IGNORECASE)
-                param = re.sub(r'union\s*select', 'union select', param, flags=re.IGNORECASE)
-                
-                # 7. 处理常见的绕过技术
-                param = param.replace('`', '')    # 移除反引号
-                param = param.replace('"', "'")   # 统一引号
-                param = re.sub(r'\s*\|\|\s*', ' OR ', param, flags=re.IGNORECASE)  # 处理||运算符
-                param = re.sub(r'\s*&&\s*', ' AND ', param, flags=re.IGNORECASE)   # 处理&&运算符
-                
-                self.logger.debug(f"处理参数后: {param}")
-                processed_params.append(param)
-                
-            except Exception as e:
-                self.logger.error(f"参数预处理失败: {str(e)}, 原始参数: {param}")
-                # 如果处理失败，添加原始参数以确保安全
-                processed_params.append(param)
-            
-        self.logger.debug(f"参数预处理完成，处理后参数数量: {len(processed_params)}")
-        return processed_params
+            # 处理其他SQL关键字
+            for pattern, replacement in sql_keywords.items():
+                # 使用正则的单词边界，避免误匹配
+                full_pattern = fr'\b{pattern}\b'
+                if re.search(full_pattern, param_lower, re.IGNORECASE):
+                    param = re.sub(full_pattern, replacement, param, flags=re.IGNORECASE)
+
+            processed.append(param)
+
+        return processed
     
     def _check_sql_injection(self, request):
         """检查请求中是否存在SQL注入

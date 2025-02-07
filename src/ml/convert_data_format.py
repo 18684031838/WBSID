@@ -4,6 +4,7 @@
 import pandas as pd
 import json
 from pathlib import Path
+import os
 
 def convert_excel_to_json(excel_path: str, json_path: str):
     """
@@ -49,8 +50,8 @@ def convert_excel_to_json(excel_path: str, json_path: str):
 
 if __name__ == '__main__':
     # 设置输入输出路径
-    excel_path = r"D:\Source\study\python\paper\src\data\kaggle\SQLiV3.xlsx"
-    json_path = r"D:\Source\study\python\paper\src\ml\data\training_data.json"
+    excel_path = os.path.join(os.path.dirname(__file__), '../../data/kaggle/SQLiV3.xlsx')
+    json_path = os.path.join(os.path.dirname(__file__), 'data/training_data.json')
     
     # 转换数据
     convert_excel_to_json(excel_path, json_path)
