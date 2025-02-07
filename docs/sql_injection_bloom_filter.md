@@ -62,4 +62,49 @@ def _hash(self, item: str, seed: int) -> int:
 | 插入时间复杂度 | O(k)          | 12次哈希    |
 | 查询时间复杂度 | O(k)          | 12次哈希    |
 
+## 5. 字符串到位数组转换算法
+
+### 5.1 转换流程
+```mermaid
+flowchart TD
+    A[输入字符串] --> B(标准化处理)
+    B --> C{生成k个哈希值}
+    C --> D[位数组置位]
+    D --> E[完成存储]
+```
+
+### 5.2 核心步骤
+1. **输入预处理**：
+   ```python
+   def _normalize_input(self, input_str):
+       # URL解码
+       decoded = urllib.parse.unquote(input_str)
+       # 移除注释
+       cleaned = re.sub(r'--.*|#.*|\/\*.*?\*\/', '', decoded)
+       # 统一大小写
+       return cleaned.upper()
+   ```
+
+2. **多哈希生成**：
+   ```python
+   def _get_hash_values(self, item):
+       return [
+           (hash1 + i * hash2) % self.bit_size
+           for i in range(self.num_hash_functions)
+       ]
+   ```
+
+3. **位数组操作**：
+   ```python
+   def add(self, item):
+       for bit_pos in self._get_hash_values(item):
+           self.redis_client.setbit(self.key, bit_pos, 1)
+   ```
+
+### 5.3 数学验证
+当插入元素$x$时，对于每个哈希函数$h_i$，位数组位置$h_i(x)$被置1。查询时若所有$h_i(x)$位为1，则判定可能存在。
+
+误判概率计算：
+$$P_{false} = \left(1 - e^{-kn/m}\right)^k$$
+
 （文档内容持续建设中...）
