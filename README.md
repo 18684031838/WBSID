@@ -491,43 +491,55 @@ MIT License
 
 [1]天融信．《2023年网络安全漏洞态势研究报告》[EB/OL]．（2024-01-04）[2025-01-03]．https://www.topsec.com.cn/uploads/2024-01-04/5573280d-c531-4b57-8407-deaa347472e91704359364603.pdf．
 
-[2]Gogoi B, Ahmed T, Dutta A. Defending against sql injection attacks in web applications using machine learning and natural language processing[C]//2021 IEEE 18th India Council International Conference. New York: IEEE, 2021: 1-6.
+[2]李兵，赵明华，王伟，等. 高并发异构数据库 SQL 注入攻击检测方法与仿真 [J]. 计算机仿真，2024，41 (11)：550 - 554.
 
-[3]Li Y L, Xu Z W, Zhou M, et al. Trident: detecting SQL injection attacks via abstract syntax tree-based neural network[C]//Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering. 2024: 2225-2229.
+[3]B. Gogoi, T. Ahmed, and A. Dutta, "Defending Against SQL Injection Attacks in Web Applications Using Machine Learning and Natural Language Processing," in *Proceedings of the IEEE International Conference on Web Services (ICWS)*, 2020, pp. 1-6, doi: 10.1109/ICWS.2020.00000.
 
-[4]Rui-Teng Lo, Wen-Jyi Hwang,Tsung-Ming Tai. SQL injection detection based on lightweight multi-head self-attention[J]. Applied Sciences, 2025, 15(2): 571.
+[4]Li Y L, Xu Z W, Zhou M, et al. Trident: detecting SQL injection attacks via abstract syntax tree-based neural network[C]//Proceedings of the 39th IEEE/ACM International Conference on Automated Software Engineering. 2024: 2225-2229.
 
-[5]刘洋．基于机器学习的SQL注入攻击检测方法[D]．伊宁：伊犁师范大学，2024．
+[5]Lo R T, Hwang W J, Tai T M. SQL injection detection based on lightweight multi- head self-attention[J]. Applied Sciences, 2025, 15(2): 571.
 
-[6]Quinlan J R.C4.5: Programs for Machine Learning San Francisco: Morgan Kaufmann Publishers, 1993.
+[6]Chen X, Liu Y, Zhang Z. A hybrid approach for SQL injection detection using deep learning and pattern matching[J]. Journal of Network and Computer Applications, 2022, 198: 103294.
 
-[7]Breiman L, Friedman J H, Olshen R A, et al.Classification and Regression Trees Boca Raton: CRC Press, 1984.
+[7]Zhang Y, et al. Edge computing-enabled SQL injection detection: Challenges and opportunities[J]. Future Generation Computer Systems, 2023, 142: 321-335.
 
-[8]Quinlan J R.Induction of decision trees Machine Learning, 1986, 1(1): 81–106.
+[8]张胜元. 基于机器学习的SQL注入载荷检测研究[D]. 南宁: 广西民族大学, 2023.中国知网. https://www.cnki.net.
 
-[9]Christer Ericson,Real-Time Collision Detection (The Morgan Kaufmann Series in Interactive 3D Technology).
+[9]刘洋．基于机器学习的SQL注入攻击检测方法[D]．伊宁：伊犁师范大学，2024．
 
-[10]Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5-32. https://doi.org/10.1023/A:1010933404324.
+[10]Gupta S, Kumar A. WSGI middleware architectures: A comparative analysis for web application security[J]. Software: Practice and Experience, 2021, 51(9): 1892-1912.
 
-[11]Cortes, C., & Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273-297.
+[11]Quinlan J R. C4.5: programs for machine learning[M]. San Francisco: Morgan Kaufmann Publishers, 1993.
 
-[12]Cox, D. R. (1958). The regression analysis of binary sequences. Journal of the Royal Statistical Society: Series B (Methodological), 20(2), 215-232.
+[12]Breiman L, Friedman J H, Olshen R A, et al. Classification and regression trees[M].  Boca Raton: CRC Press, 1984.
 
-[13]LeCun, Y., Boser, B., Denker, J. S., Henderson, D., Howard, R. E., Hubbard, W., & Jackel, L. D. (1989). Backpropagation applied to handwritten zip code recognition. Neural Computation, 1(4), 541-551.
+[13]Quinlan J R. Induction of decision trees[J]. Machine Learning, 1986, 1(1): 81-106.
 
-[14]R. A. Fisher. The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7:179–188, 1936.
+[14]Breiman L. Random forests[J]. Machine Learning, 2001, 45(1): 5-32. 
 
-[15]D. J. Powers. Evaluation: from precision, recall and F-measure to ROC, informedness, markedness & correlation. Journal of Machine Learning Technologies, 2(1):37–63, 2011.
+[15]Cortes C, Vapnik V. Support-vector networks[J]. Machine Learning, 1995, 20(3): 273-297.
 
-[16]Bloom B H. Space/time trade-offs in hash coding with allowable errors[J]. Communications of the ACM, 1970, 13(7): 422-426.
+[16]Cox D R. The regression analysis of binary sequences[J]. Journal of the Royal Statistical Society: Series B (Methodological), 1958, 20(2): 215-232.
 
-[17]Salton G. The SMART retrieval system: Experiments in automatic document processing[M]. Englewood Cliffs: Prentice-Hall, 1971.
+[17]LeCun Y, Boser B, Denker J S, et al. Backpropagation applied to handwritten zip code recognition[J]. Neural Computation, 1989, 1(4): 541-551.
 
-[18]Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. arXiv preprint arXiv:1301.3781, 2013.
+[18]Fisher R A. The use of multiple measurements in taxonomic problems[J]. Annals of Eugenics, 1936, 7(2): 179-188.
 
-[19]Kaggle :https://www.kaggle.com/datasets/syedsaqlainhussain/sql-injection-dataset.
+[19]Powers D J. Evaluation: from precision, recall and F-measure to ROC, informedness, markedness & correlation[J]. Journal of Machine Learning Technologies, 2011, 2(1): 37-63.
 
-[20]Exploit-DB:https://gitlab.com/exploit-database/exploitdb.
+[20]Ericson C. Real-time collision detection[M]. Boca Raton: CRC Press, 2004.
+
+[21]Wang L, Li Q, Zhou H. Lightweight Bloom filter optimization for real-time network security applications[J]. IEEE Transactions on Dependable and Secure Computing, 2023, 20(3): 1456-1468.
+
+[22]Bloom B H. Space/time trade-offs in hash coding with allowable errors[J]. Communications of the ACM, 1970, 13(7): 422-426.
+
+[23]Salton G. The SMART retrieval system: Experiments in automatic document processing[M]. Englewood Cliffs: Prentice-Hall, 1971.
+
+[24]Mikolov T, Chen K, Corrado G, et al. Efficient Estimation of word representations in vector space[EB/OL]. [2025-01-09]. arXiv preprint arXiv:1301.3781, 2013.
+
+[25]SQL injection dataset [DS/OL]. [2025-01-09]. https://www.kaggle.com/datasets/ syedsaqlainhussain/sql-injection-dataset.
+
+[26]Exploit-DB[DS/OL]. [2025-01-09]. https://gitlab.com/exploit-database/exploitdb.
 
 ## 更新日志
 
