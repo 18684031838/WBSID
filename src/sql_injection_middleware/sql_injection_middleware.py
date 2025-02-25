@@ -15,6 +15,9 @@ from .bloom_filter import SQLInjectionBloomFilter
 from .ml_detector import MLDetector
 from .config import LOGGING_CONFIG, REDIS_CONFIG, BACKEND_CONFIG
 import redis
+import re
+import html
+import urllib.parse
 
 # 设置控制台输出编码为UTF-8
 if hasattr(sys.stdout, 'encoding') and sys.stdout.encoding != 'utf-8':
@@ -25,6 +28,10 @@ if hasattr(sys.stdout, 'encoding') and sys.stdout.encoding != 'utf-8':
     if hasattr(sys.stdout, 'buffer'):
         sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
         sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer)
+
+class RedisConnectionError(Exception):
+    """Redis连接失败时抛出的异常"""
+    pass
 
 class SQLInjectionMiddleware:
     """SQL注入防御中间件
@@ -39,12 +46,8 @@ class SQLInjectionMiddleware:
             app: WSGI应用
             config: 配置字典，包含model_path和confidence_threshold
         """
-        self.app = app
-        self.config = config or {}
-        
-        # 配置日志
-        logging.config.dictConfig(LOGGING_CONFIG)
-        self.logger = logging.getLogger('sql_injection_middleware')
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("正在连接Redis服务器...")
         
         try:
             # 打印Redis配置信息
@@ -59,14 +62,13 @@ class SQLInjectionMiddleware:
                 'decode_responses': True,
                 'health_check_interval': 30  # 添加健康检查间隔
             }
-            self.logger.info(f"Redis配置信息: {redis_config}")
+            #self.logger.info(f"Redis配置信息: {redis_config}")
             
             # 初始化Redis连接
-            self.logger.info("正在连接Redis服务器...")
+            self.logger.info("正在测试Redis连接...")
             self.redis_client = Redis(**redis_config)
             
             # 测试连接
-            self.logger.info("正在测试Redis连接...")
             pong = self.redis_client.ping()
             self.logger.info(f"Redis连接测试结果: {pong}")
             
@@ -76,9 +78,8 @@ class SQLInjectionMiddleware:
             self.logger.info("布隆过滤器初始化成功")
             
         except (redis.ConnectionError, redis.TimeoutError) as e:
-            self.logger.warning(f"Redis连接失败，将禁用布隆过滤器: {str(e)}")
-            self.redis_client = None
-            self.bloom_filter = None
+            self.logger.error(f"Redis连接失败: {str(e)}")
+            raise RedisConnectionError(f"Redis连接失败: {str(e)}")
         except Exception as e:
             self.logger.error(f"Redis或布隆过滤器初始化时发生未知错误: {str(e)}", exc_info=True)
             self.redis_client = None
@@ -101,6 +102,13 @@ class SQLInjectionMiddleware:
             db=REDIS_CONFIG['cache_db']
         )
         self.cache_ttl = REDIS_CONFIG['cache_ttl']
+        
+        self.app = app
+        self.config = config or {}
+        self.fallback_mode = False
+        
+        # 配置日志
+        logging.config.dictConfig(LOGGING_CONFIG)
         
         self.logger.info("SQL注入防御中间件已初始化")
     
@@ -171,158 +179,205 @@ class SQLInjectionMiddleware:
             )
             return response(environ, start_response)
     
-    def _preprocess_parameters(self, params):
-        """预处理参数列表，处理各种编码和混淆
-        
+    def _preprocess_parameters(self, parameters):
+        """预处理请求参数，清理和标准化输入
+
         Args:
-            params: 参数列表
-            
+            parameters: 请求参数列表
+
         Returns:
-            list: 处理后的参数列表
+            处理后的参数列表
         """
-        processed_params = []
-        self.logger.debug(f"开始预处理参数，原始参数数量: {len(params)}")
-        
-        for param in params:
-            if not param:  # 跳过空参数
+        if not parameters:
+            return []
+
+        # SQL关键字列表
+        sql_keywords = {
+            r'SEL\s*E?\s*C?\s*T(?:\s*\*)?': 'SELECT',  # 匹配SELECT和SELECT *，但只保留SELECT
+            r'UNI\s*O?\s*N': 'UNION',
+            r'ORD\s*E?\s*R': 'ORDER',
+            r'WH\s*E?\s*RE': 'WHERE',
+            r'FR\s*O?\s*M': 'FROM',
+            r'DR\s*O?\s*P': 'DROP',
+            r'DE\s*LE?\s*TE': 'DELETE',
+            r'UP\s*D?\s*A?\s*TE': 'UPDATE',
+            r'IN\s*S?\s*E?\s*RT': 'INSERT',
+            r'EXE\s*C?\s*U?\s*TE': 'EXECUTE'
+        }
+
+        processed = []
+        for param in parameters:
+            if not isinstance(param, str):
                 continue
+
+            # 1. 处理多重URL编码
+            while '%' in param:
+                prev_param = param
+                param = urllib.parse.unquote(param)
+                if prev_param == param:
+                    break
+
+            # 2. HTML实体解码
+            param = html.unescape(param)
+
+            # 3. 处理十六进制编码
+            def hex_decode(match):
+                try:
+                    return bytes.fromhex(match.group(1)).decode('ascii')
+                except (ValueError, UnicodeDecodeError):
+                    return match.group(0)
+
+            param = re.sub(r'0x([0-9a-fA-F]+)', hex_decode, param)
+
+            # 4. 删除注释
+            param = re.sub(r'/\*[\s\S]*?\*/', ' ', param)  # 多行注释
+            param = re.sub(r'--[^\n]*', ' ', param)  # 单行注释
+            param = re.sub(r'#[^\n]*', ' ', param)   # MySQL风格注释
+
+            # 5. 处理特殊字符
+            special_chars = ['\x00', '\x08', '\x09', '\x0a', '\x0d', '\x1a', '\xa0']
+            for char in special_chars:
+                param = param.replace(char, ' ')
+
+            # 6. 标准化空白字符
+            param = ' '.join(param.split())
+
+            # 7. 标准化SQL关键字
+            param_lower = param.lower()
             
-            self.logger.debug(f"处理参数前: {param}")
-                
-            # 1. 处理混淆的空白字符
-            param = param.replace('\t', ' ').replace('\r', ' ').replace('\n', ' ')
+            # 先处理SELECT *的情况
+            select_star_pattern = r'\bSEL\s*E?\s*C?\s*T\s*\*'
+            if re.search(select_star_pattern, param_lower, re.IGNORECASE):
+                param = re.sub(select_star_pattern, 'SELECT', param, flags=re.IGNORECASE)
             
-            # 2. 处理注释和内联注释
-            param = param.replace('/*', ' ').replace('*/', ' ').replace('--', ' ')
-            
-            # 3. 处理特殊字符
-            param = param.replace('%20', ' ')  # URL编码的空格
-            param = param.replace('\x00', '')  # 空字节
-            
-            # 4. 处理SQL关键字的常见变体
-            param = param.replace('UNION/**/SELECT', 'UNION SELECT')
-            param = param.replace('UN/**/ION', 'UNION')
-            param = param.replace('SEL/**/ECT', 'SELECT')
-            
-            # 5. 处理常见的绕过技术
-            param = param.replace('/*!', '')  # MySQL版本注释
-            param = param.replace('`', '')    # 反引号
-            param = param.replace('"', "'")   # 统一引号
-            
-            self.logger.debug(f"处理参数后: {param}")
-            processed_params.append(param)
-            
-        self.logger.debug(f"参数预处理完成，处理后参数数量: {len(processed_params)}")
-        return processed_params
+            # 处理其他SQL关键字
+            for pattern, replacement in sql_keywords.items():
+                # 使用正则的单词边界，避免误匹配
+                full_pattern = fr'\b{pattern}\b'
+                if re.search(full_pattern, param_lower, re.IGNORECASE):
+                    param = re.sub(full_pattern, replacement, param, flags=re.IGNORECASE)
+
+            processed.append(param)
+
+        return processed
     
     def _check_sql_injection(self, request):
         """检查请求中是否存在SQL注入
         
         检测流程：
-        1. 首先收集所有可能包含SQL注入的参数
+        1. 收集所有可能包含SQL注入的参数值，包括：
+           - URL查询参数值
+           - URL路径中的参数部分
+           - POST表单数据值
+           - JSON数据中的值
         2. 使用布隆过滤器进行快速检测
         3. 如果布隆过滤器检测到可疑，则使用机器学习模型进行进一步检测
         4. 如果布隆过滤器未检测到，则直接返回安全
         """
-        self.logger.info(f"开始检查SQL注入 - 请求方法: {request.method}, URL: {request.url}")
-        
-        # 获取所有可能包含SQL注入的参数
-        params = []
-        
-        # 检查URL参数
-        url_args = list(request.args.values())
-        url_arg_keys = list(request.args.keys())
-        self.logger.debug(f"URL参数: {url_args}")
-        self.logger.debug(f"URL参数名: {url_arg_keys}")
-        params.extend(url_args)
-        params.extend(url_arg_keys)
-        
-        # 检查URL路径
-        self.logger.debug(f"URL路径: {request.path}")
-        params.append(request.path)
-        
-        # 检查请求头
-        headers = [(name, value) for name, value in request.headers]
-        self.logger.debug(f"请求头: {headers}")
-        for header_name, header_value in headers:
-            params.extend([header_name, header_value])
-        
-        # 检查Cookie
-        cookies = list(request.cookies.items())
-        self.logger.debug(f"Cookies: {cookies}")
-        params.extend(request.cookies.values())
-        params.extend(request.cookies.keys())
-        
-        # 检查POST数据
-        if request.method == 'POST':
-            self.logger.debug(f"Content-Type: {request.content_type}")
-            if request.is_json:
-                self.logger.debug("检测到JSON数据")
-                # 递归检查JSON数据
-                def extract_values(obj):
-                    if isinstance(obj, dict):
-                        for key, value in obj.items():
-                            params.append(str(key))
-                            if isinstance(value, (dict, list)):
-                                extract_values(value)
-                            else:
-                                params.append(str(value))
-                    elif isinstance(obj, list):
-                        for item in obj:
-                            if isinstance(item, (dict, list)):
-                                extract_values(item)
-                            else:
-                                params.append(str(item))
-                
-                json_data = request.get_json()
-                self.logger.debug(f"JSON数据: {json_data}")
-                extract_values(json_data)
-            else:
-                form_data = list(request.form.items())
-                self.logger.debug(f"表单数据: {form_data}")
-                params.extend(request.form.values())
-                params.extend(request.form.keys())
-        
-        # 预处理所有参数
-        self.logger.info("开始预处理参数")
-        params = self._preprocess_parameters(params)
-        
-        # 检查每个参数
-        for param in params:
-            if not param:  # 跳过空参数
-                continue
-                
-            self.logger.debug(f"检查参数: {param}")
+        start_time = time.time()
+        try:
+            # 获取所有请求参数值
+            params = []
             
-            # 首先使用布隆过滤器快速检测
-            if self.bloom_filter:
-                bloom_result = self.bloom_filter.check_sql_injection(param)
-                self.logger.debug(f"布隆过滤器检测结果: {bloom_result}, 参数: {param}")
-                
-                if bloom_result:
-                    # 布隆过滤器检测到可疑，使用ML模型进行精确检测
-                    self.logger.info(f"布隆过滤器检测到可疑参数，使用ML模型进行精确检测: {param}")
-                    is_injection, confidence = self.ml_detector.detect(param)
-                    self.logger.info(f"ML模型检测结果 - 是否SQL注入: {is_injection}, 置信度: {confidence}, 参数: {param}")
+            # 检查URL路径中的参数部分
+            path = request.path
+            path_segments = path.split('/')
+            # 检查路径中每个部分，主要关注可能包含参数的部分
+            for i, segment in enumerate(path_segments):
+                if not segment:
+                    continue                                  
+                params.append(segment)               
+              
+            # 检查URL查询参数值（只检查值不检查键）
+            url_args = list(request.args.values())
+            self.logger.debug(f"URL参数值: {url_args}")
+            params.extend(url_args)
+            
+            # 检查POST数据
+            if request.method == 'POST':
+                self.logger.debug(f"Content-Type: {request.content_type}")
+                if request.is_json:
+                    self.logger.debug("检测到JSON数据")
+                    # 递归提取JSON数据中的值（不包括键名）
+                    def extract_values(obj):
+                        values = []
+                        if isinstance(obj, dict):
+                            for value in obj.values():
+                                if isinstance(value, (dict, list)):
+                                    values.extend(extract_values(value))
+                                else:
+                                    values.append(str(value))
+                        elif isinstance(obj, list):
+                            for item in obj:
+                                if isinstance(item, (dict, list)):
+                                    values.extend(extract_values(item))
+                                else:
+                                    values.append(str(item))
+                        return values
                     
-                    if is_injection:
-                        self.logger.warning(f"检测到SQL注入攻击, 参数: {param}, 置信度: {confidence}")
-                        return True
-                    else:
-                        self.logger.info(f"布隆过滤器误报, 参数: {param}, ML模型置信度: {confidence}")
+                    json_data = request.get_json()
+                    self.logger.debug(f"JSON数据: {json_data}")
+                    params.extend(extract_values(json_data))
                 else:
-                    self.logger.debug(f"布隆过滤器未检测到可疑，判定为安全: {param}")
-            else:
-                self.logger.warning(f"布隆过滤器未启用，直接使用ML模型进行检测: {param}")
-                is_injection, confidence = self.ml_detector.detect(param)
-                self.logger.info(f"ML模型检测结果 - 是否SQL注入: {is_injection}, 置信度: {confidence}, 参数: {param}")
+                    # 只获取表单值（不包括键名）
+                    form_values = list(request.form.values())
+                    self.logger.debug(f"表单数据值: {form_values}")
+                    params.extend(form_values)
+            
+            # 预处理所有参数
+            self.logger.info("开始预处理参数")
+            processed_params = self._preprocess_parameters(params)
+            
+            # 检查每个参数
+            for param in processed_params:
+                if not param:  # 跳过空参数
+                    continue
+                    
+                self.logger.debug(f"检查参数: {param}")
                 
-                if is_injection:
-                    self.logger.warning(f"检测到SQL注入攻击, 参数: {param}, 置信度: {confidence}")
-                    return True
-        
-        self.logger.info("SQL注入检测完成，未发现攻击")
-        return False
+                # 首先使用布隆过滤器快速检测
+                bloom_start = time.time()
+                if self.bloom_filter:
+                    bloom_result = self.bloom_filter.check_sql_injection(param)
+                    bloom_time = time.time() - bloom_start
+                    
+                    if bloom_result:
+                        self.logger.info(f"布隆过滤器检测到可疑参数 [耗时: {bloom_time:.3f}s]")
+                        self.logger.debug(f"可疑参数: {param}")
+                        
+                        # 使用机器学习模型进行进一步检测
+                        if self.ml_detector:
+                            ml_start = time.time()
+                            is_injection, confidence = self.ml_detector.detect({'param': param})
+                            ml_time = time.time() - ml_start
+                            
+                            if is_injection and confidence >= self.ml_detector.confidence_threshold:
+                                self.logger.warning(f"机器学习模型确认SQL注入 [置信度: {confidence:.3f}, 耗时: {ml_time:.3f}s]")
+                                return True
+                            else:
+                                self.logger.info(f"机器学习模型判定为误报 [置信度: {confidence:.3f}, 耗时: {ml_time:.3f}s]")
+                        else:
+                            # 如果ML检测器不可用，则相信布隆过滤器的结果
+                            return True
+                else:
+                    # 如果布隆过滤器不可用，则使用机器学习模型
+                    if self.ml_detector:
+                        ml_start = time.time()
+                        is_injection, confidence = self.ml_detector.detect({'param': param})
+                        ml_time = time.time() - ml_start
+                        
+                        if is_injection and confidence >= self.ml_detector.confidence_threshold:
+                            self.logger.warning(f"机器学习模型检测到SQL注入 [置信度: {confidence:.3f}, 耗时: {ml_time:.3f}s]")
+                            return True
+            
+            check_time = time.time() - start_time
+            self.logger.info(f"SQL注入检测完成 [总耗时: {check_time:.3f}s]")
+            return False
+            
+        except Exception as e:
+            self.logger.error(f"SQL注入检测过程中发生错误: {str(e)}", exc_info=True)
+            # 发生错误时返回False，因为我们不能确定是否存在注入
+            return False
     
     def _forward_request(self, request):
         """转发请求到后端服务"""

@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "SQL Injection Middleware",
+            "type": "python",
+            "request": "launch",
+            "module": "src.sql_injection_middleware.start_middleware",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
+        }
+    ]
+}

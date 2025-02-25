@@ -120,69 +120,50 @@ source venv/bin/activate
 pip install -r src/requirements.txt
 ```
 
-### 2. 配置系统
+### 2. 配置演示系统
 
-在项目根目录创建 `.env` 文件并配置以下参数：
+1. 配置数据库连接
+   ```bash
+   # 复制配置模板
+   cp demo_backend_service/config/config.ini.template demo_backend_service/config/config.ini
+   # 编辑config.ini，设置数据库连接参数
+   ```
 
-```ini
-# Redis配置（用于布隆过滤器和缓存）
-REDIS_HOST=localhost
-REDIS_PORT=6379
-REDIS_DB=0
+2. 初始化数据库
+   ```bash
+   # 使用demo_backend_service/sql目录下的脚本初始化数据库和表
+   ```
 
-# 模型配置
-ML_MODEL_TYPE=svm  # 可选：decision_tree, random_forest, logistic_regression, svm, cnn
-ML_SVM_KERNEL=rbf  # SVM模型配置
-ML_SVM_C=1.0  # SVM模型配置
-ML_SVM_GAMMA=scale  # SVM模型配置
+### 3. 配置并启动SQL防注入中间件API网关
 
-# 布隆过滤器配置
-BLOOM_CAPACITY=100000  # 布隆过滤器容量
-BLOOM_ERROR_RATE=0.001  # 误判率
+1. 配置中间件
+   ```bash
+   # 编辑sql_injection_middleware/config/config.env文件
+   # 设置Redis连接参数（其他参数可保持默认）
+   ```
 
-# 特征提取配置
-WORD2VEC_MODEL_PATH=models/word2vec.model
-TFIDF_MODEL_PATH=models/tfidf.joblib
+2. 启动服务
+   ```bash
+   # 启动后端服务
+   ./demo_backend_service/start_service.bat
 
-# 性能优化配置
-BATCH_SIZE=32  # 批处理大小
-CACHE_TIMEOUT=3600  # 缓存超时时间（秒）
-MAX_WORKERS=4  # 最大工作线程数
-```
+   # 启动SQL注入检测中间件
+   ./sql_injection_middleware/start_middleware.bat
+   ```
 
-### 3. 训练模型
+现在系统已经启动完成，您可以通过HTTP请求来测试SQL注入检测功能。
 
-```python
-from ml.model_factory import ModelFactory
-from ml.feature_extractors import FeatureExtractor
-from ml.data_loader import DataLoader
+## 测试
 
-# 加载数据
-data_loader = DataLoader()
-X_train, y_train = data_loader.load_training_data()
+```bash
+# 安装测试依赖
+pip install -r requirements-dev.txt
 
-# 创建特征提取器
-feature_extractor = FeatureExtractor()
-X_train_features = feature_extractor.extract_features(X_train)
+# 运行全部测试
+pytest tests/unit -v
 
-# 训练模型
-model = ModelFactory.create_model('svm')
-model.train(X_train_features, y_train)
-model.save('models/sql_injection_model.joblib')
-```
-
-### 4. 启动服务
-
-```python
-from fastapi import FastAPI
-from sql_injection_middleware import SQLInjectionMiddleware
-
-app = FastAPI()
-app.add_middleware(SQLInjectionMiddleware)
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+# 生成覆盖率报告
+pytest --cov=src --cov-report=html tests/unit/
 ```
 
 ## 模型训练与性能测试

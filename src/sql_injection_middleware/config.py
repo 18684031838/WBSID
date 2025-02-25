@@ -136,8 +136,8 @@ LOGGING_CONFIG = {
 }
 
 # 输出配置信息
-logger.info(f"模型配置: {MODEL_CONFIG}")
-logger.info(f"Redis配置: {REDIS_CONFIG}")
-logger.info(f"后端服务配置: {BACKEND_CONFIG}")
-logger.info(f"性能监控配置: {PERFORMANCE_CONFIG}")
-logger.info(f"日志配置: {LOGGING_CONFIG}")
+#logger.info(f"模型配置: {MODEL_CONFIG}")
+#logger.info(f"Redis配置: {REDIS_CONFIG}")
+#logger.info(f"后端服务配置: {BACKEND_CONFIG}")
+#logger.info(f"性能监控配置: {PERFORMANCE_CONFIG}")
+#logger.info(f"日志配置: {LOGGING_CONFIG}")

@@ -1,0 +1,3 @@
+/src/demo_backend_service/config/config.ini
+/.venv
+/tests/unit/sql_injection_middleware/__pycache__

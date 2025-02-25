@@ -11,6 +11,7 @@ import joblib
 import logging
 from pathlib import Path
 from typing import Tuple, Dict, Any, Union
+import time
 
 # 添加项目根目录到Python路径
 import os
@@ -79,7 +80,10 @@ class MLDetector:
                 
                 # 初始化特征提取器类
                 extractor_class = EXTRACTOR_CLASSES[extractor_name]
-                self.feature_extractors[extractor_name] = extractor_class()
+                extractor = extractor_class()
+                # 初始化特征提取器
+                extractor.fit([])  # 空列表足够进行初始化
+                self.feature_extractors[extractor_name] = extractor
                 self.logger.info(f"特征提取器 {extractor_name} 初始化成功")
             
         except Exception as e:
@@ -177,18 +181,47 @@ class MLDetector:
         Returns:
             (是否是SQL注入, 置信度)
         """
+        start_time = time.time()
         try:
             # 预处理请求数据
             query = self.preprocess_request(request_data)
+            preprocess_time = time.time() - start_time
             
             # 提取特征
+            feature_start = time.time()
             features = self.extract_features(query)
+            feature_time = time.time() - feature_start
             
-            # 进行预测
+            # 使用模型预测
+            predict_start = time.time()
             is_injection, confidence = self.predict(features)
+            predict_time = time.time() - predict_start
             
-            # 记录预测结果
-            self.logger.info(f"SQL注入检测结果: 是否注入={is_injection}, 置信度={confidence:.4f}")
+            total_time = time.time() - start_time
+            
+            # 记录检测结果
+            if is_injection:
+                self.logger.warning(
+                    "检测到SQL注入攻击\n"
+                    f"检测参数:\n"
+                    f"  - 原始请求: {json.dumps(request_data, ensure_ascii=False)}\n"
+                    f"  - 预处理后: {query}\n"
+                    f"检测结果:\n"
+                    f"  - 是否注入: {is_injection}\n"
+                    f"  - 置信度: {confidence:.2%}\n"
+                    f"时间消耗:\n"
+                    f"  - 预处理: {preprocess_time:.3f}s\n"
+                    f"  - 特征提取: {feature_time:.3f}s\n"
+                    f"  - 模型预测: {predict_time:.3f}s\n"
+                    f"  - 总耗时: {total_time:.3f}s"
+                )
+            else:
+                self.logger.debug(
+                    f"SQL注入检测完成 [正常请求]\n"
+                    f"参数: {query}\n"
+                    f"置信度: {confidence:.2%}\n"
+                    f"总耗时: {total_time:.3f}s"
+                )
             
             return is_injection, confidence
             
