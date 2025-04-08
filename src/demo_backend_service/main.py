@@ -26,6 +26,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+@app.on_event("startup")
+async def startup_event():
+    await ProductService._initialize_pool()
+
 @app.get("/")
 async def root():
     """
@@ -87,5 +91,9 @@ async def unsafe_search_products(name: str):
     Returns:
         list: 匹配的产品列表
     """
-    products = ProductService.unsafe_search_products_by_name(name)
-    return products
+    try:
+        results = await ProductService.unsafe_search_products_by_name(name)
+        return {"results": results}
+    except Exception as e:
+        print(f"Error in unsafe search endpoint: {e}")
+        raise HTTPException(status_code=500, detail=str(e))

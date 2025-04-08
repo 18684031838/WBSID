@@ -1,19 +1,19 @@
 """Database configuration settings."""
 
 import configparser
-import os
+from pathlib import Path
 
-def get_db_config():
-    config = configparser.ConfigParser()
-    config_path = os.path.join(os.path.dirname(__file__), 'config.ini')
-    config.read(config_path)
+class DatabaseConfig:
+    """Database configuration loader from config.ini."""
     
-    return {
-        'host': config['database']['host'],
-        'user': config['database']['user'],
-        'password': config['database']['password'],
-        'database': config['database']['database'],
-        'port': int(config['database']['port'])
-    }
+    def __init__(self):
+        config = configparser.ConfigParser()
+        config.read(Path(__file__).parent / 'config.ini')
+        
+        self.host = config['database']['host']
+        self.port = int(config['database']['port'])
+        self.user = config['database']['user']
+        self.password = config['database']['password']
+        self.database = config['database']['database']
 
-MYSQL_CONFIG = get_db_config()
+MYSQL_CONFIG = DatabaseConfig()
