@@ -110,6 +110,16 @@ class SQLInjectionMiddleware:
         # 配置日志
         logging.config.dictConfig(LOGGING_CONFIG)
         
+        # 初始化HTTP连接池
+        self.session = requests.Session()
+        adapter = requests.adapters.HTTPAdapter(
+            pool_connections=100,
+            pool_maxsize=100,
+            max_retries=3
+        )
+        self.session.mount('http://', adapter)
+        self.session.mount('https://', adapter)
+        
         self.logger.info("SQL注入防御中间件已初始化")
     
     def __call__(self, environ, start_response):
@@ -380,14 +390,19 @@ class SQLInjectionMiddleware:
             return False
     
     def _forward_request(self, request):
-        """转发请求到后端服务"""
-        # 构建目标URL
+        """高性能的请求转发方法"""
         target_url = urljoin(BACKEND_CONFIG['url'], request.path)
+        
+        # 预构建常用请求头
+        headers = {
+            k: v for k, v in request.headers 
+            if k.lower() not in ['host', 'connection']
+        }
         
         # 准备请求参数
         kwargs = {
             'params': request.args,
-            'headers': {k: v for k, v in request.headers if k.lower() != 'host'},
+            'headers': headers,
             'timeout': BACKEND_CONFIG['timeout']
         }
         
@@ -398,14 +413,14 @@ class SQLInjectionMiddleware:
             else:
                 kwargs['data'] = request.form
         
-        # 发送请求
         try:
-            response = requests.request(
+            # 使用连接池发送请求
+            response = self.session.request(
                 method=request.method,
                 url=target_url,
                 **kwargs
             )
-            response.raise_for_status()  # 检查状态码
+            response.raise_for_status()
             return response
         except requests.RequestException as e:
             self.logger.error(f"转发请求失败: {str(e)}", exc_info=True)
