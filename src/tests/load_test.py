@@ -134,18 +134,20 @@ async def make_request(session, url, data, use_bloom):
 
 async def worker(session, url, test_data, use_bloom, metrics, interval_dist, pbar):
     for row in test_data:
-        expected = 0  
+        expected = row.get('is_malicious', 0)  # Preserve original value
         try:
-            if row.get('is_malicious') not in (None, ''):
-                expected = int(row['is_malicious'])
+            expected = int(expected) if expected not in (None, '') else 0
         except ValueError:
             expected = 0
             
         response = await make_request(session, url, row, use_bloom)
         metrics.add_result(response, expected)
         
-        # 每次请求后固定延迟3秒
-        await asyncio.sleep(3)
+        # Use configured interval instead of fixed delay
+        if interval_dist.get('type') == 'fixed':
+            await asyncio.sleep(interval_dist['value'])
+        elif interval_dist.get('type') == 'random':
+            await asyncio.sleep(random.uniform(0, interval_dist['max']))
         
         pbar.update(1)
 
@@ -209,6 +211,9 @@ def generate_report(results, scenario_name):
     precision = true_pos / (true_pos + false_pos) if (true_pos + false_pos) > 0 else 0
     recall = true_pos / (true_pos + false_neg) if (true_pos + false_neg) > 0 else 0
     
+    f1_score = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else float('nan')
+    f1_display = f'{f1_score:.2%}' if not math.isnan(f1_score) else 'N/A'
+    
     report = f"""## {scenario_name} Test Report
     
 ### Detection Metrics
@@ -220,7 +225,7 @@ def generate_report(results, scenario_name):
 | False Negatives | {false_neg} |
 | Precision | {precision:.2%} |
 | Recall | {recall:.2%} |
-| F1 Score | {2 * precision * recall / (precision + recall):.2% if (precision + recall) > 0 else 'N/A'} |
+| F1 Score | {f1_display} |
     
 ### Performance Metrics
 | Metric | Value |
@@ -237,23 +242,36 @@ def generate_report(results, scenario_name):
 
 if __name__ == "__main__":
     test_data = load_test_data()
-    url = "http://localhost:5000"  
+    url = "http://localhost:5000"
     
-    print("Running initial test (1 user, 10 requests, 3s interval)")
-    initial_test = asyncio.run(run_test(
-        url="http://localhost:5000",  # 中间件服务
-        test_data=test_data,
+    # Verification test - 10 requests with 2s intervals
+    print("\nRunning Verification Test (10 requests, 2s intervals)")
+    verification_test = asyncio.run(run_test(
+        url,
+        test_data[:10],  # First 10 test cases
         use_bloom=True,
-        users=1,
+        users=1,  # Single user
         max_requests=10,
-        interval_dist={'type': 'fixed', 'value': 3}  # 3秒间隔
+        interval_dist={'type': 'fixed', 'value': 2}  # 2s fixed interval
     ))
-    generate_report(initial_test.results, "Initial Test (1 user, 10 requests)")
-
+    
+    # Print raw results for manual verification
+    print("\nVerification Results:")
+    for i, result in enumerate(verification_test.results):
+        print(f"Request {i+1}:")
+        print(f"  Test Data: {test_data[i]}")
+        print(f"  Expected: {result['expected']}")
+        print(f"  Actual: {result['actual']}")
+        print(f"  Response Time: {result.get('response_time', 0):.3f}s")
+        print(f"  Status: {'Malicious detected' if result['actual'] == 1 else 'Clean'}")
+        print()
+    
+    # Full tests will remain commented out until verification is complete
+    """
     print("\nRunning Normal Load Test (100 users, 5000 requests)")
     normal_test = asyncio.run(run_test(
-        url="http://localhost:5000",
-        test_data=test_data,
+        url,
+        test_data,
         use_bloom=True,
         users=100,
         max_requests=5000,
@@ -296,3 +314,4 @@ if __name__ == "__main__":
     generate_report(nobloom_peak.results, "Peak Load Test (1000 users, 10min) Without Bloom")
     
     print("\nTest completed! Markdown report saved to test_report.md")
+    """
