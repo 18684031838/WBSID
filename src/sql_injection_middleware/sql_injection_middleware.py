@@ -148,11 +148,13 @@ class SQLInjectionMiddleware:
         check_time = time.time() - start_time
         
         if is_injection:
+            request._is_malicious = True  # 标记为恶意请求
             self.logger.warning(f"检测到SQL注入攻击: {request.url}, 检测耗时: {check_time:.3f}秒")
             response = Response(
                 json.dumps({
                     'error': 'Forbidden',
-                    'message': 'Potential SQL injection detected'
+                    'message': 'Potential SQL injection detected',
+                    'is_malicious': True
                 }),
                 status=403,
                 content_type='application/json'
@@ -174,7 +176,8 @@ class SQLInjectionMiddleware:
             response = Response(
                 response=backend_response.content,
                 status=backend_response.status_code,
-                content_type=backend_response.headers.get('content-type')
+                content_type=backend_response.headers.get('content-type'),
+                headers={'is_malicious': 'False'}
             )
             return response(environ, start_response)
         except Exception as e:
@@ -284,6 +287,7 @@ class SQLInjectionMiddleware:
         3. 如果布隆过滤器检测到可疑，则使用机器学习模型进行进一步检测
         4. 如果布隆过滤器未检测到，则直接返回安全
         """
+        use_bloom = request.headers.get('IsBloomFilter', '1') == '1'
         start_time = time.time()
         try:
             # 获取所有请求参数值
@@ -346,8 +350,8 @@ class SQLInjectionMiddleware:
                 self.logger.debug(f"检查参数: {param}")
                 
                 # 首先使用布隆过滤器快速检测
-                bloom_start = time.time()
-                if self.bloom_filter:
+                if use_bloom and self.bloom_filter:
+                    bloom_start = time.time()
                     bloom_result = self.bloom_filter.check_sql_injection(param)
                     bloom_time = time.time() - bloom_start
                     
@@ -390,30 +394,31 @@ class SQLInjectionMiddleware:
             return False
     
     def _forward_request(self, request):
-        """高性能的请求转发方法"""
-        target_url = urljoin(BACKEND_CONFIG['url'], request.path)
-        
-        # 预构建常用请求头
-        headers = {
-            k: v for k, v in request.headers 
-            if k.lower() not in ['host', 'connection']
-        }
-        
-        # 准备请求参数
-        kwargs = {
-            'params': request.args,
-            'headers': headers,
-            'timeout': BACKEND_CONFIG['timeout']
-        }
-        
-        # 添加请求体
-        if request.method == 'POST':
-            if request.is_json:
-                kwargs['json'] = request.get_json()
-            else:
-                kwargs['data'] = request.form
-        
+        """
+        优化后的请求转发方法
+        - 正确处理GET/POST请求
+        - 自动管理Content-Type
+        - 使用连接池提高性能
+        """
         try:
+            # 构造目标URL
+            target_url = urljoin(BACKEND_CONFIG['url'], request.path)
+            
+            # 准备基础请求参数
+            kwargs = {
+                'headers': {k: v for k, v in request.headers.items() 
+                          if k.lower() not in ['host', 'connection']},
+                'timeout': BACKEND_CONFIG['timeout']
+            }
+            
+            # 处理POST请求
+            if request.method == 'POST':
+                if request.is_json:
+                    kwargs['json'] = request.get_json()
+                    kwargs['headers']['Content-Type'] = 'application/json'
+                else:
+                    kwargs['data'] = request.form
+        
             # 使用连接池发送请求
             response = self.session.request(
                 method=request.method,
@@ -422,6 +427,7 @@ class SQLInjectionMiddleware:
             )
             response.raise_for_status()
             return response
+            
         except requests.RequestException as e:
-            self.logger.error(f"转发请求失败: {str(e)}", exc_info=True)
+            self.logger.error(f"请求转发失败: {str(e)}", exc_info=True)
             raise
