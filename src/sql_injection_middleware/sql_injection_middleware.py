@@ -130,17 +130,26 @@ class SQLInjectionMiddleware:
         self.logger.debug(f"请求头: {dict(request.headers)}")
         
         # 记录请求参数
-        if request.args:
-            self.logger.debug(f"URL参数: {dict(request.args)}")
+         # 记录请求基本信息
+        self.logger.info(f"收到请求 - 方法: {request.method}, URL: {request.url}")
         
-        if request.form:
-            self.logger.debug(f"表单数据: {dict(request.form)}")
+        # 安全记录请求参数
+        if request.method == 'GET':
+            if request.args:
+                self.logger.debug(f"GET查询参数: {dict(request.args)}")
+            path_param = request.path.split('/')[-1]
+            self.logger.debug(f"路径参数: {path_param}")
             
-        if request.is_json:
-            self.logger.debug(f"JSON数据: {request.get_json()}")
-            
-        if request.cookies:
-            self.logger.debug(f"Cookies: {dict(request.cookies)}")
+        elif request.method == 'POST':
+            if request.content_type == 'application/json':
+                try:
+                    if request.content_length > 0:  # 确保有实际数据
+                        json_data = request.get_json()
+                        self.logger.debug(f"JSON数据: {json_data}")
+                except:
+                    self.logger.debug("无效JSON数据")
+            elif request.form:
+                self.logger.debug(f"表单数据: {dict(request.form)}")
         
         # 检查是否存在SQL注入
         start_time = time.time()
