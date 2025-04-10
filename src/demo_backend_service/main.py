@@ -54,7 +54,7 @@ async def get_product(product_id: int):
     Raises:
         HTTPException: 当产品未找到时抛出404错误
     """
-    product = await ProductService.get_product_by_id(product_id)
+    product = ProductService.get_product_by_id(product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     return product

@@ -90,36 +90,36 @@ class MLDetector:
             self.logger.error(f"模型加载失败: {str(e)}")
             raise
     
-    def preprocess_request(self, request_data: Union[Dict[str, Any], str]) -> str:
+    def preprocess_request(self, request_data: Dict[str, Any]) -> str:
         """预处理HTTP请求数据
         
         Args:
-            request_data: 可以是字典(JSON)或字符串(URL参数)
-        
+            request_data: HTTP请求数据字典
+            
         Returns:
             str: 预处理后的查询字符串
         """
         try:
-            # 记录原始请求格式
-            self.logger.debug(f"原始请求数据: {request_data}")
-            
-            # 处理不同类型请求
+            # 提取查询参数
+            query = ''
             if isinstance(request_data, dict):
+                # 将所有参数值拼接成字符串
                 query = ' '.join(str(v) for v in request_data.values())
-            elif isinstance(request_data, str):
-                query = request_data
             else:
-                raise ValueError(f"不支持的请求数据类型: {type(request_data)}")
+                query = str(request_data)
             
-            # 统一解码URL编码字符
+            # URL解码
             query = unquote(query)
+            
+            # 移除多余的空白字符
+            query = re.sub(r'\s+', ' ', query).strip()
             
             # 截断到最大序列长度
             if len(query) > MODEL_CONFIG['max_sequence_length']:
                 query = query[:MODEL_CONFIG['max_sequence_length']]
                 self.logger.warning(f"查询被截断到最大长度 {MODEL_CONFIG['max_sequence_length']}")
             
-            self.logger.debug(f"预处理结果: {query}")
+            self.logger.debug(f"预处理后的查询: {query}")
             return query
             
         except Exception as e:
