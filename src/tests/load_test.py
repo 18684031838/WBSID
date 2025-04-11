@@ -241,14 +241,14 @@ if __name__ == "__main__":
     test_data = load_test_data()
     url = "http://localhost:5000"  
     
-    print("Running initial test (1 user, 10 requests, 3s interval)")
+    print("Running initial test (1 user, 10 requests, 2s interval)")
     initial_test = asyncio.run(run_test(
         url="http://localhost:5000",  # 中间件服务
         test_data=test_data,
         use_bloom=True,
         users=1,
         max_requests=10,
-        interval_dist={'type': 'fixed', 'value': 3}  # 3秒间隔
+        interval_dist={'type': 'fixed', 'value': 2}  # 2秒间隔
     ))
     generate_report(initial_test.results, "Initial Test (1 user, 10 requests)")
 
