@@ -54,7 +54,7 @@ async def get_product(product_id: int):
     Raises:
         HTTPException: 当产品未找到时抛出404错误
     """
-    product = ProductService.get_product_by_id(product_id)
+    product = await ProductService.get_product_by_id(product_id)
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
     return product
@@ -71,7 +71,7 @@ async def search_products(name: str):
     Returns:
         list: 匹配的产品列表
     """
-    products = ProductService.search_products_by_name(name)
+    products = await ProductService.search_products_by_name(name)
     return products
 
 @app.get("/products/unsafe-search/{name}")
