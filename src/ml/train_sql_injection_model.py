@@ -18,9 +18,8 @@ from typing import List, Tuple
 
 # 导入优化后的模型和特征提取器
 from models.model_factory import ModelFactory
-from feature_extractors.word2vec import Word2VecExtractor
-from feature_extractors.sql_semantic import SQLSemanticExtractor
-from feature_extractors.statistical import StatisticalExtractor
+from feature_extractors.combined import CombinedExtractor
+from sql_injection_middleware.config import MODEL_CONFIG
 
 # 配置日志
 logging.basicConfig(
@@ -77,7 +76,7 @@ def load_training_data(data_path: str, batch_size: int = 1000) -> tuple:
         logger.error(f"Error loading training data: {str(e)}", exc_info=True)
         raise
 
-def extract_features(queries: List[str], labels: List[int], batch_size: int = 1000) -> Tuple[np.ndarray, Tuple[SQLSemanticExtractor, StatisticalExtractor]]:
+def extract_features(queries: List[str], labels: List[int], batch_size: int = 1000) -> Tuple[np.ndarray, CombinedExtractor]:
     """从查询中提取特征
 
     Args:
@@ -86,35 +85,33 @@ def extract_features(queries: List[str], labels: List[int], batch_size: int = 10
         batch_size: 批处理大小
 
     Returns:
-        特征矩阵和特征提取器元组
+        特征矩阵和特征提取器
     """
     logger.info("Extracting features")
     
-    # 创建特征提取器
-    semantic_extractor = SQLSemanticExtractor(
-        max_length=128,  # 最大序列长度
-        embedding_dim=8   # 嵌入维度
+    # 从配置文件获取特征提取器设置
+    enabled_extractors = MODEL_CONFIG.get('enabled_extractors', ['statistical', 'sql_semantic'])
+    max_length = MODEL_CONFIG.get('max_sequence_length', 128)
+    embedding_dim = MODEL_CONFIG.get('embedding_dim', 8)
+    
+    # 创建组合特征提取器
+    extractor = CombinedExtractor(
+        enabled_extractors=enabled_extractors,
+        max_length=max_length,
+        embedding_dim=embedding_dim
     )
-    statistical_extractor = StatisticalExtractor()
     
-    # 提取语义特征
-    logger.info("Extracting SQL semantic features")
-    semantic_extractor.fit(queries, labels)
-    semantic_features = semantic_extractor.transform(queries)
-    logger.info(f"Semantic features shape: {semantic_features.shape}")
+    logger.info(f"使用特征提取器: {enabled_extractors}")
+    logger.info(f"最大序列长度: {max_length}")
     
-    # 提取统计特征
-    logger.info("Extracting statistical features")
-    statistical_extractor.fit(queries, labels)
-    statistical_features = statistical_extractor.transform(queries)
-    logger.info(f"Statistical features shape: {statistical_features.shape}")
-    
-    # 组合特征
-    combined_features = np.hstack([semantic_features, statistical_features])
-    logger.info(f"Combined features shape: {combined_features.shape}")
+    # 提取特征
+    logger.info("Fitting and transforming features")
+    extractor.fit(queries, labels)
+    features = extractor.transform(queries)
+    logger.info(f"Combined features shape: {features.shape}")
     
     # 返回特征和提取器
-    return combined_features, (semantic_extractor, statistical_extractor)
+    return features, extractor
 
 def evaluate_model(model, X_test, y_test, model_name: str = ""):
     """评估模型性能"""
@@ -204,8 +201,7 @@ def train_model(model_type: str, data_path: str, output_dir: str, batch_size: in
         logger.info("Saving model and feature extractor")
         project_root = Path(__file__).resolve().parent.parent.parent
         model_path = str(project_root / "models" / f"{model_type}_model")  # 不加扩展名，由模型自己处理
-        semantic_path = str(project_root / "models" / "sql_semantic_extractor.joblib")
-        statistical_path = str(project_root / "models" / "statistical_extractor.joblib")
+        extractor_path = str(project_root / "models" / "combined_extractor.joblib")
         
         # 创建models目录（如果不存在）
         models_dir = project_root / "models"
@@ -215,11 +211,9 @@ def train_model(model_type: str, data_path: str, output_dir: str, batch_size: in
         model.save(model_path)
         logger.info(f"Model saved to {model_path}{model.model_extension}")
         
-        # 保存特征提取器
-        joblib.dump(extractor[0], semantic_path)
-        logger.info(f"SQL semantic extractor saved to {semantic_path}")
-        joblib.dump(extractor[1], statistical_path)
-        logger.info(f"Statistical extractor saved to {statistical_path}")
+        # 保存组合特征提取器
+        joblib.dump(extractor, extractor_path)
+        logger.info(f"Combined feature extractor saved to {extractor_path}")
         
         return result
         

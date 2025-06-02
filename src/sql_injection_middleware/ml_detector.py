@@ -20,10 +20,11 @@ if project_root not in sys.path:
     sys.path.append(project_root)
 
 from .config import MODEL_CONFIG
-from src.ml.feature_extractors.statistical import StatisticalExtractor
-from src.ml.feature_extractors.sql_semantic import SQLSemanticExtractor
-from src.ml.feature_extractors.tfidf import TFIDFExtractor
-from src.ml.feature_extractors.word2vec import Word2VecExtractor
+from ml.feature_extractors.combined import CombinedExtractor
+from ml.feature_extractors.statistical import StatisticalExtractor
+from ml.feature_extractors.sql_semantic import SQLSemanticExtractor
+from ml.feature_extractors.tfidf import TFIDFExtractor
+from ml.feature_extractors.word2vec import Word2VecExtractor
 
 # 特征提取器映射
 EXTRACTOR_CLASSES = {
@@ -53,7 +54,6 @@ class MLDetector:
         # 加载配置参数
         self.confidence_threshold = MODEL_CONFIG['confidence_threshold']
         self.model_type = MODEL_CONFIG['model_type']
-        self.feature_extractors = {}
         
         try:
             # 获取模型路径
@@ -68,23 +68,19 @@ class MLDetector:
             self.model = joblib.load(model_path)
             self.logger.info("模型加载成功")
             
-            # 加载启用的特征提取器
+            # 初始化组合特征提取器
             enabled_extractors = MODEL_CONFIG.get('enabled_extractors', ['statistical', 'sql_semantic'])
             if not enabled_extractors:
                 self.logger.warning("未配置启用的特征提取器，使用默认特征提取器: statistical, sql_semantic")
                 enabled_extractors = ['statistical', 'sql_semantic']
                 
-            for extractor_name in enabled_extractors:
-                if extractor_name not in EXTRACTOR_CLASSES:
-                    raise ValueError(f"未知的特征提取器类型: {extractor_name}")
-                
-                # 初始化特征提取器类
-                extractor_class = EXTRACTOR_CLASSES[extractor_name]
-                extractor = extractor_class()
-                # 初始化特征提取器
-                extractor.fit([])  # 空列表足够进行初始化
-                self.feature_extractors[extractor_name] = extractor
-                self.logger.info(f"特征提取器 {extractor_name} 初始化成功")
+            self.feature_extractor = CombinedExtractor(
+                enabled_extractors=enabled_extractors,
+                max_length=MODEL_CONFIG.get('max_sequence_length', 128),
+                embedding_dim=MODEL_CONFIG.get('embedding_dim', 8)
+            )
+            self.feature_extractor.fit([])  # 空列表足够进行初始化
+            self.logger.info(f"组合特征提取器初始化成功，启用的特征: {enabled_extractors}")
             
         except Exception as e:
             self.logger.error(f"模型加载失败: {str(e)}")
@@ -136,17 +132,10 @@ class MLDetector:
             np.ndarray: 特征向量
         """
         try:
-            # 提取所有特征并合并
-            all_features = []
-            for extractor_name, extractor in self.feature_extractors.items():
-                self.logger.debug(f"使用 {extractor_name} 提取特征")
-                features = extractor.transform([query])
-                all_features.append(features)
-            
-            # 水平连接所有特征
-            combined_features = np.hstack(all_features)
-            self.logger.debug(f"合并后的特征维度: {combined_features.shape}")
-            return combined_features
+            # 使用组合特征提取器提取特征
+            features = self.feature_extractor.transform([query])
+            self.logger.debug(f"提取的特征维度: {features.shape}")
+            return features
             
         except Exception as e:
             self.logger.error(f"特征提取失败: {str(e)}")

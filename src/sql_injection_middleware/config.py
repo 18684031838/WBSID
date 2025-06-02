@@ -52,6 +52,7 @@ MODEL_CONFIG = {
     },
     'confidence_threshold': float(os.getenv('CONFIDENCE_THRESHOLD', '0.5')),  # 检测置信度阈值
     'max_sequence_length': int(os.getenv('MAX_SEQUENCE_LENGTH', '1000')),  # 最大序列长度
+    'embedding_dim': int(os.getenv('EMBEDDING_DIM', '8')),  # 嵌入维度
     'feature_extractors': {
         'statistical': str(PROJECT_ROOT / os.getenv('STATISTICAL_EXTRACTOR', 'models/statistical_extractor.joblib')),
         'sql_semantic': str(PROJECT_ROOT / os.getenv('SQL_SEMANTIC_EXTRACTOR', 'models/sql_semantic_extractor.joblib')),
