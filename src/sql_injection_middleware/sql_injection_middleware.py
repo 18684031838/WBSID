@@ -136,9 +136,12 @@ class SQLInjectionMiddleware:
         if request.form:
             self.logger.debug(f"表单数据: {dict(request.form)}")
             
-        if request.is_json:
-            self.logger.debug(f"JSON数据: {request.get_json()}")
-            
+        if request.method == 'POST' and request.is_json:
+            try:
+                self.logger.debug(f"JSON数据: {request.get_json()}")
+            except Exception as e:
+                self.logger.warning(f"解析JSON数据失败: {str(e)}")
+                
         if request.cookies:
             self.logger.debug(f"Cookies: {dict(request.cookies)}")
         

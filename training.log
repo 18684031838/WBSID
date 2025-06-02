@@ -1,0 +1,424 @@
+2025-04-11 10:03:01,258 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:03:01,259 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:03:01,259 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:03:01,300 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:03:01,301 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:03:01,302 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:03:01,304 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:03:01,305 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:03:01,307 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:03:01,308 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:03:01,310 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:03:01,311 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:03:01,312 - __main__ - INFO - Extracting features
+2025-04-11 10:03:01,312 - __main__ - INFO - Extracting features
+2025-04-11 10:03:01,312 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:03:01,936 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:03:01,936 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:03:02,465 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:03:02,532 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:03:02,622 - __main__ - INFO - Training random_forest model
+2025-04-11 10:03:05,016 - __main__ - INFO - 
+==================== Evaluating random_forest ====================
+2025-04-11 10:03:05,058 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:03:05,064 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:03:05,064 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:03:05,067 - __main__ - INFO - 
+[[3887    8]
+ [   9 2280]]
+2025-04-11 10:03:05,067 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:03:05,084 - __main__ - INFO - Time to process 1000 samples: 0.017 seconds
+2025-04-11 10:03:05,085 - __main__ - INFO - Samples per second: 58823.7
+2025-04-11 10:03:05,085 - __main__ - INFO - Average time per sample: 0.017 ms
+2025-04-11 10:03:05,090 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:03:05,112 - __main__ - INFO - Model saved to D:\Source\WBSID\models\random_forest_model.joblib
+2025-04-11 10:03:05,113 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:03:05,114 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:04:32,043 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:04:32,043 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:04:32,043 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:04:32,073 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:04:32,075 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:04:32,076 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:04:32,077 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:04:32,079 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:04:32,081 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:04:32,082 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:04:32,083 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:04:32,085 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:04:32,085 - __main__ - INFO - Extracting features
+2025-04-11 10:04:32,085 - __main__ - INFO - Extracting features
+2025-04-11 10:04:32,086 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:04:32,675 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:04:32,675 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:04:33,197 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:04:33,262 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:04:33,358 - __main__ - INFO - Training random_forest model
+2025-04-11 10:04:35,825 - __main__ - INFO - 
+==================== Evaluating random_forest ====================
+2025-04-11 10:04:35,867 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:04:35,872 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:04:35,873 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:04:35,873 - __main__ - INFO - 
+[[3887    8]
+ [   9 2280]]
+2025-04-11 10:04:35,874 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:04:35,890 - __main__ - INFO - Time to process 1000 samples: 0.016 seconds
+2025-04-11 10:04:35,890 - __main__ - INFO - Samples per second: 62502.7
+2025-04-11 10:04:35,891 - __main__ - INFO - Average time per sample: 0.016 ms
+2025-04-11 10:04:35,896 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:04:35,918 - __main__ - INFO - Model saved to D:\Source\WBSID\models\random_forest_model.joblib
+2025-04-11 10:04:35,920 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:04:35,920 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:08:26,869 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:08:26,870 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:08:26,870 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:08:26,901 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:08:26,902 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:08:26,904 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:08:26,905 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:08:26,907 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:08:26,909 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:08:26,910 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:08:26,911 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:08:26,913 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:08:26,913 - __main__ - INFO - Extracting features
+2025-04-11 10:08:26,913 - __main__ - INFO - Extracting features
+2025-04-11 10:08:26,914 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:08:27,556 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:08:27,556 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:08:28,118 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:08:28,187 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:08:28,289 - __main__ - INFO - Training random_forest model
+2025-04-11 10:10:07,571 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:10:07,571 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:10:07,571 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:10:07,602 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:10:07,603 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:10:07,604 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:10:07,605 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:10:07,607 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:10:07,609 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:10:07,611 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:10:07,613 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:10:07,615 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:10:07,615 - __main__ - INFO - Extracting features
+2025-04-11 10:10:07,615 - __main__ - INFO - Extracting features
+2025-04-11 10:10:07,616 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:10:08,233 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:10:08,233 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:10:08,905 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:10:08,977 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:10:09,063 - __main__ - INFO - Training random_forest model
+2025-04-11 10:10:11,731 - __main__ - INFO - 
+==================== Evaluating random_forest ====================
+2025-04-11 10:10:11,770 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:10:11,775 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:10:11,775 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:10:11,776 - __main__ - INFO - 
+[[3888    7]
+ [   9 2280]]
+2025-04-11 10:10:11,776 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:10:11,793 - __main__ - INFO - Time to process 1000 samples: 0.017 seconds
+2025-04-11 10:10:11,794 - __main__ - INFO - Samples per second: 58823.7
+2025-04-11 10:10:11,794 - __main__ - INFO - Average time per sample: 0.017 ms
+2025-04-11 10:10:11,800 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:10:11,824 - __main__ - INFO - Model saved to D:\Source\WBSID\models\random_forest_model.joblib
+2025-04-11 10:10:11,825 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:10:11,826 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:14:12,987 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:14:12,987 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:14:12,987 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:14:13,018 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:14:13,019 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:14:13,020 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:14:13,021 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:14:13,023 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:14:13,025 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:14:13,026 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:14:13,027 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:14:13,029 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:14:13,029 - __main__ - INFO - Extracting features
+2025-04-11 10:14:13,029 - __main__ - INFO - Extracting features
+2025-04-11 10:14:13,030 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:14:13,645 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:14:13,645 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:14:14,189 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:14:14,258 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:14:14,343 - __main__ - INFO - Training random_forest model
+2025-04-11 10:14:17,094 - __main__ - INFO - 
+==================== Evaluating random_forest ====================
+2025-04-11 10:14:17,135 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:14:17,140 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:14:17,140 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:14:17,141 - __main__ - INFO - 
+[[3887    8]
+ [   9 2280]]
+2025-04-11 10:14:17,141 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:14:17,159 - __main__ - INFO - Time to process 1000 samples: 0.018 seconds
+2025-04-11 10:14:17,159 - __main__ - INFO - Samples per second: 55554.4
+2025-04-11 10:14:17,159 - __main__ - INFO - Average time per sample: 0.018 ms
+2025-04-11 10:14:17,164 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:14:17,187 - __main__ - INFO - Model saved to D:\Source\WBSID\models\random_forest_model.joblib
+2025-04-11 10:14:17,188 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:14:17,189 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:15:02,171 - __main__ - INFO - Training decision_tree model...
+2025-04-11 10:15:02,172 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:15:02,172 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:15:02,201 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:15:02,203 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:15:02,204 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:15:02,205 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:15:02,207 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:15:02,208 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:15:02,209 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:15:02,211 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:15:02,212 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:15:02,213 - __main__ - INFO - Extracting features
+2025-04-11 10:15:02,213 - __main__ - INFO - Extracting features
+2025-04-11 10:15:02,213 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:15:02,817 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:15:02,817 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:15:03,366 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:15:03,435 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:15:03,521 - __main__ - INFO - Training decision_tree model
+2025-04-11 10:15:05,746 - __main__ - INFO - 
+==================== Evaluating decision_tree ====================
+2025-04-11 10:15:05,761 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:15:05,766 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:15:05,766 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:15:05,767 - __main__ - INFO - 
+[[3888    7]
+ [  11 2278]]
+2025-04-11 10:15:05,768 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:15:05,771 - __main__ - INFO - Time to process 1000 samples: 0.003 seconds
+2025-04-11 10:15:05,771 - __main__ - INFO - Samples per second: 333278.0
+2025-04-11 10:15:05,771 - __main__ - INFO - Average time per sample: 0.003 ms
+2025-04-11 10:15:05,776 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:15:05,778 - __main__ - INFO - Model saved to D:\Source\WBSID\models\decision_tree_model.joblib
+2025-04-11 10:15:05,779 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:15:05,780 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:15:28,934 - __main__ - INFO - Training logistic_regression model...
+2025-04-11 10:15:28,934 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:15:28,934 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:15:28,964 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:15:28,965 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:15:28,967 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:15:28,968 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:15:28,970 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:15:28,972 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:15:28,972 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:15:28,974 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:15:28,976 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:15:28,976 - __main__ - INFO - Extracting features
+2025-04-11 10:15:28,976 - __main__ - INFO - Extracting features
+2025-04-11 10:15:28,977 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:15:29,576 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:15:29,576 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:15:30,125 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:15:30,192 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:15:30,274 - __main__ - INFO - Training logistic_regression model
+2025-04-11 10:15:48,941 - __main__ - INFO - 
+==================== Evaluating logistic_regression ====================
+2025-04-11 10:15:48,950 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:15:48,955 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      1.00      3895
+           1       1.00      0.99      0.99      2289
+
+    accuracy                           0.99      6184
+   macro avg       0.99      0.99      0.99      6184
+weighted avg       0.99      0.99      0.99      6184
+
+2025-04-11 10:15:48,956 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:15:48,956 - __main__ - INFO - 
+[[3885   10]
+ [  24 2265]]
+2025-04-11 10:15:48,957 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:15:48,958 - __main__ - INFO - Time to process 1000 samples: 0.001 seconds
+2025-04-11 10:15:48,958 - __main__ - INFO - Samples per second: 1002223.2
+2025-04-11 10:15:48,958 - __main__ - INFO - Average time per sample: 0.001 ms
+2025-04-11 10:15:48,963 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:15:48,965 - __main__ - INFO - Model saved to D:\Source\WBSID\models\logistic_regression_model.joblib
+2025-04-11 10:15:48,966 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:15:48,967 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:36:30,969 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:36:30,970 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:36:30,970 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:36:31,011 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:36:31,013 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:36:31,014 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:36:31,015 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:36:31,017 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:36:31,018 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:36:31,020 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:36:31,021 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:36:31,023 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:36:31,023 - __main__ - INFO - Extracting features
+2025-04-11 10:36:31,023 - __main__ - INFO - Extracting features
+2025-04-11 10:36:31,026 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:36:31,618 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:36:31,618 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:36:32,139 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:36:32,200 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:36:32,278 - __main__ - INFO - Training random_forest model
+2025-04-11 10:36:34,656 - __main__ - INFO - 
+==================== Evaluating random_forest ====================
+2025-04-11 10:36:34,697 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:36:34,703 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      3895
+           1       1.00      1.00      1.00      2289
+
+    accuracy                           1.00      6184
+   macro avg       1.00      1.00      1.00      6184
+weighted avg       1.00      1.00      1.00      6184
+
+2025-04-11 10:36:34,703 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:36:34,707 - __main__ - INFO - 
+[[3885   10]
+ [   8 2281]]
+2025-04-11 10:36:34,707 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:36:34,735 - __main__ - INFO - Time to process 1000 samples: 0.028 seconds
+2025-04-11 10:36:34,736 - __main__ - INFO - Samples per second: 35714.4
+2025-04-11 10:36:34,736 - __main__ - INFO - Average time per sample: 0.028 ms
+2025-04-11 10:36:34,741 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:36:34,768 - __main__ - INFO - Model saved to D:\Source\WBSID\models\random_forest_model.joblib
+2025-04-11 10:36:34,769 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:36:34,770 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:36:56,552 - __main__ - INFO - Training logistic_regression model...
+2025-04-11 10:36:56,553 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:36:56,553 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:36:56,582 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:36:56,583 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:36:56,584 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:36:56,586 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:36:56,587 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:36:56,589 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:36:56,590 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:36:56,592 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:36:56,593 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:36:56,594 - __main__ - INFO - Extracting features
+2025-04-11 10:36:56,594 - __main__ - INFO - Extracting features
+2025-04-11 10:36:56,594 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:36:57,188 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:36:57,188 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:36:57,714 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:36:57,773 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:36:57,852 - __main__ - INFO - Training logistic_regression model
+2025-04-11 10:37:27,271 - __main__ - INFO - 
+==================== Evaluating logistic_regression ====================
+2025-04-11 10:37:27,282 - __main__ - INFO - 
+Classification Report:
+2025-04-11 10:37:27,287 - __main__ - INFO - 
+              precision    recall  f1-score   support
+
+           0       0.99      1.00      1.00      3895
+           1       0.99      0.99      0.99      2289
+
+    accuracy                           0.99      6184
+   macro avg       0.99      0.99      0.99      6184
+weighted avg       0.99      0.99      0.99      6184
+
+2025-04-11 10:37:27,287 - __main__ - INFO - 
+Confusion Matrix:
+2025-04-11 10:37:27,288 - __main__ - INFO - 
+[[3883   12]
+ [  21 2268]]
+2025-04-11 10:37:27,288 - __main__ - INFO - 
+Inference Speed Test:
+2025-04-11 10:37:27,290 - __main__ - INFO - Time to process 1000 samples: 0.002 seconds
+2025-04-11 10:37:27,290 - __main__ - INFO - Samples per second: 499917.0
+2025-04-11 10:37:27,290 - __main__ - INFO - Average time per sample: 0.002 ms
+2025-04-11 10:37:27,294 - __main__ - INFO - Saving model and feature extractor
+2025-04-11 10:37:27,296 - __main__ - INFO - Model saved to D:\Source\WBSID\models\logistic_regression_model.joblib
+2025-04-11 10:37:27,297 - __main__ - INFO - SQL semantic extractor saved to D:\Source\WBSID\models\sql_semantic_extractor.joblib
+2025-04-11 10:37:27,297 - __main__ - INFO - Statistical extractor saved to D:\Source\WBSID\models\statistical_extractor.joblib
+2025-04-11 10:39:46,756 - __main__ - INFO - Training random_forest model...
+2025-04-11 10:39:46,757 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:39:46,757 - __main__ - INFO - Loading training data from D:\Source\WBSID\data\training_data.json
+2025-04-11 10:39:46,786 - __main__ - INFO - Loaded 10/31 batches
+2025-04-11 10:39:46,787 - __main__ - INFO - Loaded 20/31 batches
+2025-04-11 10:39:46,788 - __main__ - INFO - Loaded 30/31 batches
+2025-04-11 10:39:46,790 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:39:46,791 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:39:46,793 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:39:46,794 - __main__ - INFO - Loaded 30919 samples
+2025-04-11 10:39:46,796 - __main__ - INFO - Positive samples: 11367
+2025-04-11 10:39:46,797 - __main__ - INFO - Negative samples: 19552
+2025-04-11 10:39:46,797 - __main__ - INFO - Extracting features
+2025-04-11 10:39:46,797 - __main__ - INFO - Extracting features
+2025-04-11 10:39:46,798 - __main__ - INFO - Extracting SQL semantic features
+2025-04-11 10:39:47,390 - __main__ - INFO - Semantic features shape: (30919, 1024)
+2025-04-11 10:39:47,390 - __main__ - INFO - Extracting statistical features
+2025-04-11 10:39:47,916 - __main__ - INFO - Statistical features shape: (30919, 10)
+2025-04-11 10:39:47,976 - __main__ - INFO - Combined features shape: (30919, 1034)
+2025-04-11 10:39:48,053 - __main__ - INFO - Training random_forest model
